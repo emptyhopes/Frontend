@@ -22,11 +22,11 @@ class Paths extends null {
     },
 
     relative: {
-      javascript: "Javascript",
+      javascript: "javascript",
       html: "",
-      styles: "Styles",
-      images: "Assets" + "/" + "Images",
-      fonts: "Assets" + "/" + "Fonts",
+      styles: "styles",
+      images: "assets" + "/" + "images",
+      fonts: "assets" + "/" + "fonts",
     },
   };
 

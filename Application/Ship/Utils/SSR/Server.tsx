@@ -1,8 +1,7 @@
+import { resolve } from "path";
 import { readFileSync } from "fs";
 
-import * as React from "react";
 import * as ReactDOM from "react-dom/server";
-
 import * as express from "express";
 
 import { Application } from "@/Application/Containers/Application/Application";
@@ -11,7 +10,7 @@ import { Paths } from "@/Application/Ship/Utils/Paths/Paths";
 const port = 80;
 
 const path = Paths.GetAbsolutePath(Paths.paths.absolute.output, Paths.combined.production.html.index);
-const HTML = readFileSync(path, { encoding: "utf-8" });
+const HTML = readFileSync(path, { encoding: "utf8" });
 
 const content = HTML.replace(
   // eslint-disable-next-line quotes
@@ -22,10 +21,10 @@ const content = HTML.replace(
 
 const server = express();
 
+server.use(express.static(resolve(__dirname, "..")));
+
 server.use("*", (request, response) => {
   response.status(200).send(content);
 });
-
-server.use("*", express.static(Paths.paths.absolute.output));
 
 server.listen(port);
