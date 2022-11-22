@@ -8,22 +8,16 @@ import * as express from "express";
 import { Application } from "@/Application/Containers/Application/Application";
 import { Paths } from "@/Application/Ship/Utils/Paths/Paths";
 
-const GetFileData = (path, encoding) => {
-  const data = readFileSync(path, { encoding: encoding });
-
-  return data;
-};
-
 const port = 80;
 
 const path = Paths.GetAbsolutePath(Paths.paths.absolute.output, Paths.combined.production.html.index);
-const HTML = GetFileData(path, "utf-8");
+const HTML = readFileSync(path, { encoding: "utf-8" });
 
 const content = HTML.replace(
   // eslint-disable-next-line quotes
   '<div id="root"></div>',
   // eslint-disable-next-line quotes
-  '<div id="root>"' + ReactDOM.renderToString(<Application />) + "</div>",
+  '<div id="root">' + ReactDOM.renderToString(<Application />) + "</div>",
 );
 
 const server = express();
