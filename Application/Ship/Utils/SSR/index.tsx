@@ -1,11 +1,10 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom/client";
+import * as ReactDOM from "react-dom";
 
 import { Application } from "@/Application/Containers/Application/Application";
 
 const Structures = <Application />;
 
 const element = document.getElementById("root");
-const root = ReactDOM.createRoot(element);
 
-root.render(Structures);
+ReactDOM.hydrate(Structures, element);
