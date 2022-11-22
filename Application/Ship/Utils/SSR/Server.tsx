@@ -34,4 +34,4 @@ server.use("*", (request, response) => {
 
 server.use("*", express.static(Paths.paths.absolute.output));
 
-server.listen(port, () => console.log("http://localhost" + ":" + port));
+server.listen(port);
