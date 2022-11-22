@@ -1,0 +1,34 @@
+on: [push]
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [19.x]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Starting Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: NPM install
+        run: npm install
+
+      - name: Check prettier
+        run: npm run prettier:write
+
+      - name: Check stylelint
+        run: npm run stylelint
+
+      - name: Check eslint
+        run: npm run lint
+
+      - name: Check tests
+        run: npm run tests
+
+      # - name: Check production single page application build in the docker container
+      #   run: npm run production:docker

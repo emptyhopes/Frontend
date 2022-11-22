@@ -1,0 +1,62 @@
+{
+  "root": true,
+
+  "env": {
+    "node": true
+  },
+
+  "plugins": ["react", "@typescript-eslint", "import"],
+
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "alias": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "map": [["@", "."]]
+      }
+    }
+  },
+
+  "rules": {
+    "no-var": "error",
+    "no-empty": "error",
+    "no-console": "error",
+    "no-unused-vars": "error",
+    "no-inline-comments": "error",
+    "prefer-const": "error",
+    "quotes": ["error", "double"],
+    "jsx-quotes": ["error", "prefer-double"],
+    "indent": ["error", 2],
+    "react/jsx-indent": ["error", 2],
+    "max-len": ["error", { "code": 120 }],
+    "comma-dangle": ["error", "always-multiline"],
+    "semi": ["error", "always"],
+    "spaced-comment": ["error", "always"],
+    "func-style": ["error", "expression"],
+
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"],
+        "newlines-between": "always-and-inside-groups"
+      }
+    ],
+
+    "react/react-in-jsx-scope": "off",
+
+    "@typescript-eslint/no-var-requires": "off"
+  }
+}

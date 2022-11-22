@@ -1,0 +1,16 @@
+FROM node:latest AS Production
+
+WORKDIR /
+
+RUN npm install --global npm@latest
+
+COPY package.json package.json
+RUN npm install
+
+COPY . .
+RUN npm run production
+
+FROM nginx:latest
+
+COPY --from=Production /Build /var/www/Build
+COPY /Application/Ship/Utils/Nginx/nginx.conf /etc/nginx/nginx.conf

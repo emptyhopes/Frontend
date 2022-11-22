@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Application Render 1`] = `
+<div
+  class="sc-gswNZR jTerpc"
+  data-testid="StyledApplication"
+>
+  <button
+    class="sc-bcXHqe WUNSp"
+  >
+    12313
+  </button>
+</div>
+`;
