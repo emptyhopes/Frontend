@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import { Button } from "@/Application/Containers/UI/Button/Button";
-// import { Routes } from "@/Application/Ship/Routes/Routes";
 
 const StyledApplication = styled.div`
   *,
@@ -47,8 +46,7 @@ const StyledApplication = styled.div`
 const Application = () => {
   return (
     <StyledApplication data-testid="StyledApplication">
-      <Button>12313</Button>
-      {/* <Routes /> */}
+      <Button onClick={() => alert("ya tyt")}>12313</Button>
     </StyledApplication>
   );
 };

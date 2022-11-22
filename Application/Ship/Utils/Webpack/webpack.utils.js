@@ -4,7 +4,7 @@ const { ProvidePlugin } = require("webpack");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 
-const { Paths } = require("./Application/Ship/Utils/Paths/Paths.js");
+const { Paths } = require("../Paths/Paths.js");
 
 class Utils extends null {
   static copy = {

@@ -2,25 +2,23 @@ const HTMLWebpackPlugin = require("html-webpack-plugin");
 const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const CSSMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin");
-const WebpackNodeExternals = require("webpack-node-externals");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
-const { Utils } = require("./webpack.utils.js");
-const { Paths } = require("./Application/Ship/Utils/Paths/Paths.js");
+const { Utils } = require("../../webpack.utils.js");
+const { Paths } = require("../../../Paths/Paths.js");
 
-const ProductionClientSSR = {
+const Production = {
   ...Utils.defaults,
 
   mode: "production",
 
   entry: {
-    index: Paths.paths.absolute.entry.production.index,
+    index: Paths.paths.absolute.entry.production.spa.index,
   },
 
   output: {
     ...Utils.defaults.output,
     filename: Paths.combined.production.javascript.index,
-    clean: false,
   },
 
   optimization: {
@@ -111,26 +109,4 @@ const ProductionClientSSR = {
   },
 };
 
-const ProductionServerSSR = {
-  ...Utils.defaults,
-
-  mode: "production",
-  target: "node",
-
-  entry: {
-    server: Paths.paths.absolute.entry.production.server,
-  },
-
-  output: {
-    ...Utils.defaults.output,
-    filename: Paths.combined.production.javascript.server,
-  },
-
-  externals: [WebpackNodeExternals()],
-
-  module: {
-    rules: [...Utils.rules],
-  },
-};
-
-module.exports = [ProductionServerSSR, ProductionClientSSR];
+module.exports = Production;

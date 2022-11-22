@@ -21,6 +21,9 @@ const content = HTML.replace(
 
 const server = express();
 
+// console.log(resolve(__dirname, ".."));
+
+// Поработать над regexp + не отдаёт сначала html, только #root
 server.use(express.static(resolve(__dirname, "..")));
 
 server.use("*", (request, response) => {

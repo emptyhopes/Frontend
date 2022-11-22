@@ -2,10 +2,10 @@ const EslintWebpackPlugin = require("eslint-webpack-plugin");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 
-const { Utils } = require("./webpack.utils.js");
-const { Paths } = require("./Application/Ship/Utils/Paths/Paths.js");
+const { Utils } = require("../webpack.utils.js");
+const { Paths } = require("../../Paths/Paths.js");
 
-const Watch = {
+const Development = {
   ...Utils.defaults,
 
   mode: "development",
@@ -18,26 +18,6 @@ const Watch = {
   output: {
     ...Utils.defaults.output,
     filename: Paths.combined.development.javascript.index,
-  },
-
-  devServer: {
-    port: 80,
-
-    open: true,
-    hot: true,
-
-    historyApiFallback: true,
-
-    compress: true,
-
-    client: {
-      progress: false,
-
-      overlay: {
-        errors: true,
-        warnings: true,
-      },
-    },
   },
 
   plugins: [
@@ -86,4 +66,4 @@ const Watch = {
   },
 };
 
-module.exports = Watch;
+module.exports = Development;
