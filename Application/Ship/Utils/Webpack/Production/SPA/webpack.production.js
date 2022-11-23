@@ -71,12 +71,10 @@ const Production = {
     ...Utils.plugins,
 
     new HTMLWebpackPlugin({
-      template: Paths.paths.absolute.template,
+      template: Paths.paths.absolute.template.index,
       filename: Paths.combined.production.html.index,
 
-      minify: {
-        collapseWhitespace: true,
-      },
+      minify: true,
     }),
 
     new MiniCSSExtractPlugin({

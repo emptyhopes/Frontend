@@ -8,7 +8,9 @@ class Paths extends null {
       context: resolve(this.root),
       application: resolve(this.root, "Application"),
       output: resolve(this.root, "Build"),
-      template: resolve(this.root, "Application", "Ship", "Public", "index.html"),
+      template: {
+        index: resolve(this.root, "Application", "Ship", "Public", "index.html"),
+      },
       assets: resolve(this.root, "Application", "Ship", "Assets"),
       entry: {
         development: {

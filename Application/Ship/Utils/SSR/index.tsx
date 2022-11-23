@@ -7,4 +7,4 @@ const Structures = <Application />;
 
 const element = document.getElementById("root");
 
-ReactDOM.hydrate(Structures, element);
+ReactDOM.render(Structures, element);

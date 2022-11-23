@@ -73,12 +73,10 @@ const ProductionClient = {
     ...Utils.plugins,
 
     new HTMLWebpackPlugin({
-      template: Paths.paths.absolute.template,
+      template: Paths.paths.absolute.template.index,
       filename: Paths.combined.production.html.index,
 
-      minify: {
-        collapseWhitespace: true,
-      },
+      minify: true,
     }),
 
     new MiniCSSExtractPlugin({
@@ -116,11 +114,6 @@ const ProductionServer = {
 
   mode: "production",
   target: "node",
-
-  node: {
-    __dirname: false,
-    __filename: false,
-  },
 
   entry: {
     server: Paths.paths.absolute.entry.production.ssr.server,

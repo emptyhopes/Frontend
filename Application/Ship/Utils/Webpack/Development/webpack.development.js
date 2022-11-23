@@ -28,12 +28,10 @@ const Development = {
     }),
 
     new HTMLWebpackPlugin({
-      template: Paths.paths.absolute.template,
+      template: Paths.paths.absolute.template.index,
       filename: Paths.combined.development.html.index,
 
-      minify: {
-        collapseWhitespace: false,
-      },
+      minify: false,
     }),
 
     new MiniCSSExtractPlugin({
