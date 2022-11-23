@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import "@/Application/Containers/Application/Styles/Application.scss";
+
 import { Button } from "@/Application/Containers/UI/Button/Button";
 
 const StyledApplication = styled.div`

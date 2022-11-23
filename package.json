@@ -32,6 +32,7 @@
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "babel-loader": "^9.1.0",
+    "babel-plugin-react-remove-properties": "^0.3.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.0.0",
@@ -69,5 +70,9 @@
     "webpack-cli": "^5.0.0",
     "webpack-dev-server": "^4.9.3",
     "webpack-node-externals": "^3.0.0"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "null-loader": "^4.0.1"
   }
 }

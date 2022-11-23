@@ -127,7 +127,26 @@ const ProductionServer = {
   externals: [WebpackNodeExternals()],
 
   module: {
-    rules: [...Utils.rules],
+    rules: [
+      ...Utils.rules,
+
+      {
+        test: /\.(svg|png|jpg|jpeg|webp)$/,
+        use: "null-loader",
+      },
+      {
+        test: /\.(ttf|woff|woff2|eot)$/,
+        use: "null-loader",
+      },
+      {
+        test: /\.css$/,
+        use: "null-loader",
+      },
+      {
+        test: /\.s[ac]ss$/,
+        use: "null-loader",
+      },
+    ],
   },
 };
 
