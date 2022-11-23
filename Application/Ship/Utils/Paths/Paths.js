@@ -14,15 +14,24 @@ class Paths extends null {
       assets: resolve(this.root, "Application", "Ship", "Assets"),
       entry: {
         development: {
-          index: resolve(this.root, "Application", "Ship", "Utils", "SPA", "index.tsx"),
+          index: resolve(this.root, "Application", "Ship", "Utils", "Application", "Development", "index.tsx"),
         },
         production: {
           spa: {
-            index: resolve(this.root, "Application", "Ship", "Utils", "SPA", "index.tsx"),
+            index: resolve(this.root, "Application", "Ship", "Utils", "Application", "Production", "SPA", "index.tsx"),
           },
           ssr: {
-            index: resolve(this.root, "Application", "Ship", "Utils", "SSR", "index.tsx"),
-            server: resolve(this.root, "Application", "Ship", "Utils", "SSR", "Server.tsx"),
+            index: resolve(this.root, "Application", "Ship", "Utils", "Application", "Production", "SSR", "index.tsx"),
+            server: resolve(
+              this.root,
+              "Application",
+              "Ship",
+              "Utils",
+              "Application",
+              "Production",
+              "SSR",
+              "Server.tsx",
+            ),
           },
         },
       },

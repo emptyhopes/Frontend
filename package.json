@@ -5,7 +5,7 @@
     "development": "webpack --config Application/Ship/Utils/Webpack/Development/webpack.development.js",
     "production:spa": "webpack --config Application/Ship/Utils/Webpack/Production/SPA/webpack.production.js",
     "production:ssr": "webpack --config Application/Ship/Utils/Webpack/Production/SSR/webpack.production.js",
-    "development:docker": "docker-compose --file docker-compose.development.yml up --build --detach",
+    "development:docker": "docker-compose --file Application/Ship/Utils/Docker/docker-compose.development.yml up --build --detach",
     "production:spa:docker": "docker-compose --file docker-compose.production.yml up --build --detach",
     "production:ssr:docker": "docker-compose --file docker-compose.production.yml up --build --detach",
     "stats": "webpack-bundle-analyzer Build/stats.json",
