@@ -1,6 +1,6 @@
 FROM node:latest AS Production
 
-WORKDIR /
+WORKDIR /Application
 
 RUN npm install --global npm@latest
 
@@ -13,5 +13,8 @@ RUN npm run production:spa
 FROM nginx:latest
 
 RUN rm --recursive --force /var/www/build
-COPY --from=Production /Build /var/www/build
+RUN mkdir --parents /var/www/build
+RUN mkdir --parents /etc/nginx
+
+COPY --from=Production /Application/Build /var/www/build
 COPY /Application/Ship/Utils/Nginx/nginx.conf /etc/nginx/nginx.conf

@@ -1,6 +1,6 @@
 FROM node:latest AS Production
 
-WORKDIR /
+WORKDIR /Application
 
 RUN npm install --global npm@latest
 
@@ -10,6 +10,4 @@ RUN npm install
 COPY . .
 RUN npm run production:ssr
 
-RUN rm --recursive --force /var/www/build
-COPY /Build /var/www/build
-RUN node $(find /var/www/build -name server.*.js)
+RUN node $(find /Application/Build -name server.*.js)
