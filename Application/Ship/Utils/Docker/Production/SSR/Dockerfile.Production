@@ -10,4 +10,6 @@ RUN npm install
 COPY . .
 RUN npm run production:ssr
 
-COPY --from=Production /Build /var/www/Build
+RUN rm --recursive --force /var/www/build
+COPY /Build /var/www/build
+RUN node $(find /var/www/build -name server.*.js)

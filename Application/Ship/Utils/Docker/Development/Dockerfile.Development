@@ -12,5 +12,6 @@ RUN npm run development
 
 FROM nginx:latest
 
-COPY --from=Development /Build /var/www/Build
+RUN rm --recursive --force /var/www/build
+COPY --from=Development /Build /var/www/build
 COPY /Application/Ship/Utils/Nginx/nginx.conf /etc/nginx/nginx.conf

@@ -40,7 +40,7 @@ jobs:
       - name: Remove production single page application build in the docker container
         run: npm run production:spa:docker:remove
 
-      # - name: Check production server side rendering build in the docker container
-      #   run: npm run production:ssr:docker
-      # - name: Remove production server side rendering build in the docker container
-      #   run: npm run production:ssr:docker:remove
+      - name: Check production server side rendering build in the docker container
+        run: npm run production:ssr:docker
+      - name: Remove production server side rendering build in the docker container
+        run: npm run production:ssr:docker:remove

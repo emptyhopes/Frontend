@@ -28,4 +28,7 @@ server.use("*", (request, response) => {
   response.status(200).send(content);
 });
 
-server.listen(port);
+server.listen(port, () => {
+  // eslint-disable-next-line no-console
+  console.log("http://localhost" + ":" + port);
+});
