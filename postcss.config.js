@@ -1,3 +1,3 @@
 module.exports = {
-  plugins: [require("stylelint"), require("cssnano")],
+  plugins: [require("cssnano")],
 };
