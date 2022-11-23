@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "frontend-spa",
   "scripts": {
     "watch": "webpack serve --config Application/Ship/Utils/Webpack/Watch/webpack.watch.js",
@@ -13,7 +14,8 @@
     "production:ssr:docker:remove": "docker-compose --file Application/Ship/Utils/Docker/Production/SSR/docker-compose.production.yml rm --stop --force && docker system prune --all --force --volumes",
     "stats": "webpack-bundle-analyzer Build/stats.json",
     "prettier:write": "prettier --write .",
-    "stylelint": "stylelint \"**/*.(jsx|tsx|css|scss|sass)\"",
+    "stylelint:styled-components": "stylelint \"**/*.(jsx|tsx)\" --config Application/Ship/Utils/Stylelint/StyledComponents/.stylelintrc",
+    "stylelint:styles": "stylelint \"**/*.(css|scss|sass)\" --config Application/Ship/Utils/Stylelint/Styles/.stylelintrc",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "tests": "jest"
@@ -59,7 +61,9 @@
     "styled-components": "^5.3.6",
     "stylelint": "^14.9.1",
     "stylelint-config-idiomatic-order": "^9.0.0",
+    "stylelint-config-recommended": "^9.0.0",
     "stylelint-config-standard-scss": "^6.1.0",
+    "stylelint-config-styled-components": "^0.1.1",
     "stylelint-order": "^5.0.0",
     "stylelint-processor-styled-components": "^1.10.0",
     "stylelint-scss": "^4.3.0",

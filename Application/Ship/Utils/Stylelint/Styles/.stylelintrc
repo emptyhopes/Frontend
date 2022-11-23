@@ -1,0 +1,16 @@
+{
+  "extends": ["stylelint-config-recommended", "stylelint-config-standard-scss", "stylelint-config-idiomatic-order"],
+  "plugins": ["stylelint-scss", "stylelint-order"],
+  "rules": {
+    "indentation": 2,
+    "color-hex-case": "lower",
+    "color-hex-length": "long",
+    "at-rule-empty-line-before": null,
+    "color-function-notation": null,
+    "alpha-value-notation": null,
+    "no-missing-end-of-source-newline": null,
+    "scss/dollar-variable-pattern": null,
+    "rule-empty-line-before": null,
+    "no-empty-source": null
+  }
+}

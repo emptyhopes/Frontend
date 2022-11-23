@@ -21,8 +21,11 @@ jobs:
       - name: Check prettier
         run: npm run prettier:write
 
-      - name: Check stylelint
-        run: npm run stylelint
+      - name: Check stylelint styled components
+        run: npm run stylelint:styled-components
+
+      - name: Check stylelint styles
+        run: npm run stylelint:styles
 
       - name: Check eslint
         run: npm run lint
