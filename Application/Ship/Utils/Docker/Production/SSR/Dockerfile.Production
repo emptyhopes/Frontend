@@ -10,4 +10,4 @@ RUN npm install
 COPY . .
 RUN npm run production:ssr
 
-RUN node $(find /Application/Build -name server.*.js)
+# RUN node $(find /Application/Build -name server.*.js)
