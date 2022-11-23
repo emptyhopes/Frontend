@@ -1,7 +1,15 @@
+import styled from "styled-components";
+
+const StyledTitle = styled.h1`
+  h1 {
+    color: white;
+  }
+`;
+
 const Main = () => {
   return (
     <>
-      <h1>Main</h1>
+      <StyledTitle>Main</StyledTitle>
     </>
   );
 };

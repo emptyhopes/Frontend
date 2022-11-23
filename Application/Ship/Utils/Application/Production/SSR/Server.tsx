@@ -1,8 +1,11 @@
 import { resolve } from "path";
 import { readFileSync } from "fs";
 
+import * as React from "react";
 import * as ReactDOM from "react-dom/server";
 import * as express from "express";
+
+import { StaticRouter } from "react-router-dom/server";
 
 import { Application } from "@/Application/Containers/Application/Application";
 import { Paths } from "@/Application/Ship/Utils/Paths/Paths";
@@ -13,18 +16,26 @@ const HTML = readFileSync(Paths.GetAbsolutePath(Paths.paths.absolute.output, Pat
   encoding: "utf-8",
 });
 
-const content = HTML.replace(
-  // eslint-disable-next-line quotes
-  '<div id="root"></div>',
-  // eslint-disable-next-line quotes
-  '<div id="root">' + ReactDOM.renderToString(<Application />) + "</div>",
-);
-
 const server = express();
 
 server.get(/\.json|\.js|\.css|\.txt$/, express.static(resolve(__dirname, "..")));
 
 server.use("*", (request, response) => {
+  const Structures = (
+    <React.StrictMode>
+      <StaticRouter location={request.url}>
+        <Application />
+      </StaticRouter>
+    </React.StrictMode>
+  );
+
+  const content = HTML.replace(
+    // eslint-disable-next-line quotes
+    '<div id="root"></div>',
+    // eslint-disable-next-line quotes
+    '<div id="root">' + ReactDOM.renderToString(Structures) + "</div>",
+  );
+
   response.status(200).send(content);
 });
 

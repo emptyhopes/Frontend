@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 import { Link } from "react-router-dom";
 
-import "@/Application/Containers/Application/Styles/Application.scss";
-
 import { Routes } from "@/Application/Ship/Routes/Routes";
 import { Button } from "@/Application/Containers/UI/Button/Button";
 
@@ -22,7 +20,8 @@ const StyledApplication = styled.div`
   body {
     padding: 0;
     margin: 0;
-    background-color: #000000;
+    background-color: #ffffff;
+    color: #000000;
   }
 
   a {
@@ -31,7 +30,7 @@ const StyledApplication = styled.div`
   }
 
   a:hover {
-    color: #ffffff;
+    color: red;
     cursor: pointer;
   }
 
@@ -50,15 +49,22 @@ const StyledApplication = styled.div`
 `;
 
 const Application = () => {
-  // eslint-disable-next-line no-console
-  console.log(Routes());
   return (
     <StyledApplication data-testid="StyledApplication">
+      <Routes />
       <Button onClick={() => alert("ya tyt")}>12313</Button>
-      <Link to="/">Main</Link>
-      <Link to="/error">Error</Link>
-      <Link to="/users">Users error</Link>
-      <Link to="/users/1">Users id error</Link>
+      <li>
+        <Link to="/">Main</Link>
+      </li>
+      <li>
+        <Link to="/error">Error</Link>
+      </li>
+      <li>
+        <Link to="/users">Users error</Link>
+      </li>
+      <li>
+        <Link to="/users/1">Users id error</Link>
+      </li>
     </StyledApplication>
   );
 };
