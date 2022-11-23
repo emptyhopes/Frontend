@@ -23,7 +23,7 @@ const Watch = {
   devServer: {
     port: 80,
 
-    open: true,
+    open: false,
     hot: true,
 
     historyApiFallback: true,
