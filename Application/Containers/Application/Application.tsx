@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import "@/Application/Containers/Application/Styles/Application.scss";
+
 import { Link } from "react-router-dom";
 
 import { Routes } from "@/Application/Ship/Routes/Routes";
