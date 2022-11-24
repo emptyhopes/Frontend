@@ -5,8 +5,10 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/server";
 import * as express from "express";
 
+import { Provider } from "react-redux";
 import { StaticRouter } from "react-router-dom/server";
 
+import { store } from "@/Application/Ship/Store/index";
 import { Application } from "@/Application/Containers/Application/Application";
 import { Paths } from "@/Application/Ship/Utils/Paths/Paths";
 
@@ -23,9 +25,11 @@ server.get(/\.json|\.js|\.css|\.txt$/, express.static(resolve(__dirname, "..")))
 server.use("*", (request, response) => {
   const Structures = (
     <React.StrictMode>
-      <StaticRouter location={request.url}>
-        <Application />
-      </StaticRouter>
+      <Provider store={store}>
+        <StaticRouter location={request.url}>
+          <Application />
+        </StaticRouter>
+      </Provider>
     </React.StrictMode>
   );
 
