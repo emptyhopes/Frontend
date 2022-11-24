@@ -33,6 +33,7 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "axios": "^1.2.0",
     "babel-loader": "^9.1.0",
     "babel-plugin-react-remove-properties": "^0.3.0",
     "copy-webpack-plugin": "^11.0.0",
