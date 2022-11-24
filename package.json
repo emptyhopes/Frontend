@@ -18,7 +18,8 @@
     "stylelint:styles": "stylelint \"**/*.(css|scss|sass)\" --config Application/Ship/Utils/Stylelint/Styles/.stylelintrc",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "tests": "jest"
+    "tests": "jest",
+    "git": "npm run prettier:write && npm run stylelint:styled-components && npm run stylelint:styles && npm run lint && npm run tests"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.20.2",

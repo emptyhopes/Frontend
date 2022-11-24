@@ -1,9 +1,13 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
-import { MainReducers } from "@/Application/Containers/Main/Store/Main";
+import { UsersAPI } from "@/Application/Containers/Middlewares/Users/UsersMiddleware";
+
+import { UsersReducer } from "@/Application/Containers/Users/Store/Reducers/Reducer";
 
 const reducers = combineReducers({
-  MainReducers,
+  [UsersAPI.reducerPath]: UsersAPI.reducer,
+
+  UsersReducer,
 });
 
 export type RootState = ReturnType<typeof reducers>;
