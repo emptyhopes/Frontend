@@ -29,7 +29,7 @@ const StyledLogo = styled.div`
   }
 `;
 
-const Header = () => {
+const Header: React.FunctionComponent = () => {
   return (
     <>
       <StyledHeader>

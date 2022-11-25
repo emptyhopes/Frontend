@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import { FunctionComponent } from "react";
-
 import { ButtonInterface } from "@/Application/Containers/UI/Details/Button/Types/ButtonInterface";
 
 const StyledButton = styled.button`
@@ -12,11 +10,11 @@ const StyledButton = styled.button`
   color: #3e5060;
 
   &:hover {
-    background: #e2edf8;
+    background: #f0f0f0;
   }
 `;
 
-const Button: FunctionComponent<ButtonInterface> = (props) => {
+const Button: React.FunctionComponent<ButtonInterface> = (props) => {
   return <StyledButton {...props} />;
 };
 

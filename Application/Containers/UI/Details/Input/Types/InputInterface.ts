@@ -1,4 +1,5 @@
 interface InputInterface {
+  placeholder: string;
   style?: React.CSSProperties;
 }
 

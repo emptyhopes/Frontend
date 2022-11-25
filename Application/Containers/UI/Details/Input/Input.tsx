@@ -1,12 +1,20 @@
 import styled from "styled-components";
 
-import { FunctionComponent } from "react";
-
 import { InputInterface } from "@/Application/Containers/UI/Details/Input/Types/InputInterface";
 
-const StyledInput = styled.input``;
+const StyledInput = styled.input`
+  padding: 14px;
+  border: 1px solid #c0c0c0;
+  border-radius: 12px;
+  color: #000000;
+  outline: none;
 
-const Input: FunctionComponent<InputInterface> = (props) => {
+  &:focus {
+    border: 1px solid #00bfff;
+  }
+`;
+
+const Input: React.FunctionComponent<InputInterface> = (props) => {
   return <StyledInput {...props} />;
 };
 

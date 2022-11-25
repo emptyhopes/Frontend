@@ -1,12 +1,12 @@
 import { RouteObject, useRoutes } from "react-router-dom";
 
-import { Home } from "@/Application/Containers/Pages/Home/Home";
+import { Home } from "@/Application/Containers/Pages/Public/Home/Home";
 
-import { Users } from "@/Application/Containers/Pages/Users/Users";
-import { Posts } from "@/Application/Containers/Pages/Posts/Posts";
-import { Todos } from "@/Application/Containers/Pages/Todos/Todos";
+import { Users } from "@/Application/Containers/Pages/Public/Users/Users";
+import { Posts } from "@/Application/Containers/Pages/Public/Posts/Posts";
+import { Todos } from "@/Application/Containers/Pages/Public/Todos/Todos";
 
-import { Error } from "@/Application/Containers/Pages/Error/Error";
+import { Error } from "@/Application/Containers/Pages/Public/Error/Error";
 
 const Routes = () => {
   const routes: Array<RouteObject> = [

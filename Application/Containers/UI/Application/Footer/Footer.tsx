@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import { FunctionComponent } from "react";
-
 import { Container } from "@/Application/Containers/UI/Application/Container/Container";
 
 const StyledFooter = styled.footer`
@@ -9,7 +7,7 @@ const StyledFooter = styled.footer`
   background-color: ${(props) => props.theme.header.background.color};
 `;
 
-const Footer: FunctionComponent = () => {
+const Footer: React.FunctionComponent = () => {
   return (
     <>
       <StyledFooter>

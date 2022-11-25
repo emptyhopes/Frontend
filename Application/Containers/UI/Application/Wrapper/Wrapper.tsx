@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import { FunctionComponent } from "react";
-
 import { WrapperInterface } from "@/Application/Containers/UI/Application/Wrapper/Types/WrapperInterface";
 
 const StyledWrapper = styled.main`
@@ -9,7 +7,7 @@ const StyledWrapper = styled.main`
   background-color: ${(props) => props.theme.header.background.color};
 `;
 
-const Wrapper: FunctionComponent<WrapperInterface> = (props) => {
+const Wrapper: React.FunctionComponent<WrapperInterface> = (props) => {
   return (
     <>
       <StyledWrapper {...props} />

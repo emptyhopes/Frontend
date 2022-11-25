@@ -1,8 +1,6 @@
-import { FunctionComponent } from "react";
-
 import { Wrapper } from "@/Application/Containers/UI/Application/Wrapper/Wrapper";
 
-const Error: FunctionComponent = () => {
+const Error: React.FunctionComponent = () => {
   return (
     <>
       <Wrapper>

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { State } from "@/Application/Containers/Pages/Users/Store/States/State";
+import { State } from "@/Application/Containers/Pages/Public/Users/Store/States/State";
 
 const { reducer, actions } = createSlice({
   name: "Users",

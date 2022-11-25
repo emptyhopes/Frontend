@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { IoMoonOutline, IoMoon } from "react-icons/io5";
-import { FunctionComponent, useState } from "react";
+import { useState } from "react";
 
 import { UseApplicationDispatch } from "@/Application/Ship/Store/Hooks/UseApplicationDispatch";
 import { UseApplicationSelector } from "@/Application/Ship/Store/Hooks/UseApplicationSelector";
@@ -11,9 +11,19 @@ import { ThemeActions } from "@/Application/Containers/UI/Application/Theme/Stor
 import { Switch } from "@/Application/Containers/UI/Details/Switch/Switch";
 import { ThemeInterface } from "@/Application/Containers/UI/Application/Theme/Types/ThemeInterface";
 
-const StyledContent = styled.div``;
+const StyledContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-const Theme: FunctionComponent<ThemeInterface> = (props) => {
+  & svg {
+    width: 20px;
+    height: 20px;
+    margin: 0 15px 0 0;
+  }
+`;
+
+const Theme: React.FunctionComponent<ThemeInterface> = (props) => {
   const dispatch = UseApplicationDispatch();
 
   const { theme } = UseApplicationSelector((state) => state.ThemeReducer);

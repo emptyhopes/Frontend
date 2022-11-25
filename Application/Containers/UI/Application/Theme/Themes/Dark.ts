@@ -3,25 +3,25 @@ import { ThemesInterface } from "@/Application/Containers/UI/Application/Theme/T
 const Dark: ThemesInterface = {
   header: {
     background: {
-      color: "#000000",
+      color: "#cccccc",
     },
   },
 
   wrapper: {
     background: {
-      color: "#000000",
+      color: "#cccccc",
     },
   },
 
   footer: {
     background: {
-      color: "#000000",
+      color: "#cccccc",
     },
   },
 
   button: {
     background: {
-      color: "#000000",
+      color: "#cccccc",
     },
   },
 };

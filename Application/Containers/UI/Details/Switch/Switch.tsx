@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import { FunctionComponent } from "react";
-
 import { SwitchInterface } from "@/Application/Containers/UI/Details/Switch/Types/SwitchInterface";
 
 const StyledSwitch = styled.label`
@@ -54,7 +52,7 @@ const StyledSpan = styled.span`
   }
 `;
 
-const Switch: FunctionComponent<SwitchInterface> = (props) => {
+const Switch: React.FunctionComponent<SwitchInterface> = (props) => {
   return (
     <StyledSwitch>
       <StyledInput type="checkbox" {...props} />

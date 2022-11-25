@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
-import { useLocation } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { Theme } from "@/Application/Containers/UI/Application/Theme/Theme";
 
@@ -24,15 +23,16 @@ const StyledLi = styled.li`
     padding: 10px 20px;
     border-radius: 20px;
     background-color: #ffffff;
+    font-weight: 700;
   }
 
   & a:hover {
-    color: red;
+    color: #;
   }
 
   &.active {
     & a {
-      background-color: #c6d8ff;
+      background-color: #c0c0c0;
     }
   }
 `;
@@ -43,26 +43,32 @@ const StyledLink = styled(Link)`
   background-color: #ffffff;
 `;
 
-const Navbar = () => {
+const StyledTheme = styled(Theme)`
+  margin: 0 0 0 60px;
+`;
+
+const Navbar: React.FunctionComponent = () => {
   const location = useLocation();
+
+  const GetElementLink = (url: string, children: React.ReactNode) => {
+    if (location.pathname === url) {
+      return <StyledLi className={"active"}>{children}</StyledLi>;
+    }
+
+    return <StyledLi>{children}</StyledLi>;
+  };
+
   return (
     <>
       <StyledNavbar>
         <nav>
           <StyledUl>
-            <StyledLi className={location.pathname === "/" ? "active" : ""}>
-              <StyledLink to={"/"}>Home</StyledLink>
-            </StyledLi>
-            <StyledLi className={location.pathname === "/users" ? "active" : ""}>
-              <StyledLink to={"/users"}>Users</StyledLink>
-            </StyledLi>
-            <StyledLi className={location.pathname === "/posts" ? "active" : ""}>
-              <StyledLink to={"/posts"}>Posts</StyledLink>
-            </StyledLi>
-            <StyledLi className={location.pathname === "/todos" ? "active" : ""}>
-              <StyledLink to={"/todos"}>Todos</StyledLink>
-            </StyledLi>
-            <Theme style={{ margin: "0 0 0 40px" }} />
+            {GetElementLink("/", <StyledLink to={"/"}>Home</StyledLink>)}
+            {GetElementLink("/users", <StyledLink to={"/users"}>Users</StyledLink>)}
+            {GetElementLink("/posts", <StyledLink to={"/posts"}>Posts</StyledLink>)}
+            {GetElementLink("/todos", <StyledLink to={"/todos"}>Todos</StyledLink>)}
+
+            <StyledTheme />
           </StyledUl>
         </nav>
       </StyledNavbar>
