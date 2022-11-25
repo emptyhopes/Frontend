@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 import { FunctionComponent } from "react";
 
-import { ContainerInterface } from "@/Application/Containers/UI/Container/Types/ContainerInterface";
+import { ContainerInterface } from "@/Application/Containers/UI/Application/Container/Types/ContainerInterface";
 
 const StyledContainer = styled.div`
+  width: 100%;
   max-width: 1240px;
   margin: 0 auto;
 `;

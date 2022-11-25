@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 import Logo from "@/Application/Ship/Assets/Images/Logo.png";
 
-import { Container } from "@/Application/Containers/UI/Container/Container";
-import { Navbar } from "@/Application/Containers/UI/Header/Components/Navbar/Navbar";
+import { Container } from "@/Application/Containers/UI/Application/Container/Container";
+import { Navbar } from "@/Application/Containers/UI/Application/Header/Components/Navbar/Navbar";
 
 const StyledHeader = styled.header`
-  background-color: #fffadd;
+  background-color: ${(props) => props.theme.header.background.color};
 `;
 
 const StyledContent = styled.div`
@@ -16,7 +16,7 @@ const StyledContent = styled.div`
   height: 120px;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 100px;
+  padding: 0;
 `;
 
 const StyledLogo = styled.div`

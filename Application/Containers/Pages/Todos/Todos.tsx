@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 
-import { Wrapper } from "@/Application/Containers/UI/Wrapper/Wrapper";
-import { Container } from "@/Application/Containers/UI/Container/Container";
+import { Wrapper } from "@/Application/Containers/UI/Application/Wrapper/Wrapper";
+import { Container } from "@/Application/Containers/UI/Application/Container/Container";
 
 const Todos: FunctionComponent = () => {
   return (

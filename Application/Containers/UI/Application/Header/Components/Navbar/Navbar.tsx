@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 
+import { Theme } from "@/Application/Containers/UI/Application/Theme/Theme";
+
 const StyledNavbar = styled.div`
   display: flex;
   align-items: center;
@@ -60,6 +62,7 @@ const Navbar = () => {
             <StyledLi className={location.pathname === "/todos" ? "active" : ""}>
               <StyledLink to={"/todos"}>Todos</StyledLink>
             </StyledLi>
+            <Theme style={{ margin: "0 0 0 40px" }} />
           </StyledUl>
         </nav>
       </StyledNavbar>

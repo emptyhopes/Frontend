@@ -8,13 +8,11 @@ import { store } from "@/Application/Ship/Store/index";
 import { Application } from "@/Application/Containers/Application/Application";
 
 const Structures = (
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <Application />
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <BrowserRouter>
+      <Application />
+    </BrowserRouter>
+  </Provider>
 );
 
 const element = document.getElementById("root");

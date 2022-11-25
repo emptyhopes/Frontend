@@ -2,8 +2,8 @@ import { FunctionComponent } from "react";
 
 import { UsersAPI } from "@/Application/Containers/Middlewares/Users/UsersMiddleware";
 
-import { Wrapper } from "@/Application/Containers/UI/Wrapper/Wrapper";
-import { Container } from "@/Application/Containers/UI/Container/Container";
+import { Wrapper } from "@/Application/Containers/UI/Application/Wrapper/Wrapper";
+import { Container } from "@/Application/Containers/UI/Application/Container/Container";
 
 const Users: FunctionComponent = () => {
   const { isLoading, isError, data: users } = UsersAPI.useGetUsersQuery(10);
