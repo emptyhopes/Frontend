@@ -1,9 +1,0 @@
-{
-  "name": "Test Application",
-  "short_name": "application",
-  "background_color": "#000000",
-  "theme_color": "#000000",
-  "display": "standalone",
-  "start_url": "/",
-  "scope": "/"
-}

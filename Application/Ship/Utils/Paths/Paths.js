@@ -59,10 +59,10 @@ class Paths extends null {
         chunk: "[name].chunk.css",
       },
       images: {
-        default: "[name].[ext]",
+        default: "[name][ext]",
       },
       fonts: {
-        default: "[name].[ext]",
+        default: "[name][ext]",
       },
     },
     production: {
@@ -78,10 +78,10 @@ class Paths extends null {
         chunk: "[name].[contenthash].chunk.css",
       },
       images: {
-        default: "[name].[ext]",
+        default: "[name][ext]",
       },
       fonts: {
-        default: "[name].[ext]",
+        default: "[name][ext]",
       },
     },
   };

@@ -1,9 +1,13 @@
+import styled from "styled-components";
+
 import { FunctionComponent } from "react";
 
 import { InputInterface } from "@/Application/Containers/UI/Input/Types/InputInterface";
 
-const Input: FunctionComponent<InputInterface> = ({ children }) => {
-  return <input>{children}</input>;
+const StyledInput = styled.input``;
+
+const Input: FunctionComponent<InputInterface> = (props) => {
+  return <StyledInput {...props} />;
 };
 
 export { Input };

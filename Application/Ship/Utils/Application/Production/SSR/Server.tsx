@@ -20,7 +20,7 @@ const HTML = readFileSync(Paths.GetAbsolutePath(Paths.paths.absolute.output, Pat
 
 const server = express();
 
-server.get(/\.json|\.js|\.css|\.txt$/, express.static(resolve(__dirname, "..")));
+server.get(/\.json|\.js|\.css|\.svg|\.png|\.jpg|\.jpeg|\.txt$/, express.static(resolve(__dirname, "..")));
 
 server.use("*", (request, response) => {
   const Structures = (
