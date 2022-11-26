@@ -1,5 +1,7 @@
 import { RouteObject, useRoutes } from "react-router-dom";
 
+import { AuthenticationProvider } from "@/Application/Ship/Providers/Authentication/AuthenticationProvider";
+
 import { Home } from "@/Application/Containers/Pages/Public/Home/Home";
 
 import { Users } from "@/Application/Containers/Pages/Public/Users/Users";
@@ -19,19 +21,31 @@ const Routes = () => {
     {
       path: "/users",
       index: false,
-      element: <Users />,
+      element: (
+        <AuthenticationProvider>
+          <Users />
+        </AuthenticationProvider>
+      ),
       children: [],
     },
     {
       path: "/posts",
       index: false,
-      element: <Posts />,
+      element: (
+        <AuthenticationProvider>
+          <Posts />
+        </AuthenticationProvider>
+      ),
       children: [],
     },
     {
       path: "/todos",
       index: false,
-      element: <Todos />,
+      element: (
+        <AuthenticationProvider>
+          <Todos />
+        </AuthenticationProvider>
+      ),
       children: [],
     },
 

@@ -1,4 +1,4 @@
-interface UsersInterface {
+interface UserInterface {
   id: number;
   name: string;
   username: string;
@@ -22,4 +22,4 @@ interface UsersInterface {
   };
 }
 
-export { UsersInterface };
+export { UserInterface };

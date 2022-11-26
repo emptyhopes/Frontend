@@ -39,7 +39,7 @@
     "jsx-quotes": ["error", "prefer-double"],
     "indent": ["error", 2],
     "react/jsx-indent": ["error", 2],
-    "max-len": ["error", { "code": 120 }],
+    "max-len": ["error", { "code": 120, "ignoreUrls": true, "ignoreStrings": true }],
     "comma-dangle": ["error", "always-multiline"],
     "semi": ["error", "always"],
     "spaced-comment": ["error", "always"],

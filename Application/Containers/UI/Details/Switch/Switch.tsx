@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { SwitchInterface } from "@/Application/Containers/UI/Details/Switch/Types/SwitchInterface";
+import { PropsInterface } from "@/Application/Containers/UI/Details/Switch/Types/PropsInterface";
 
 const StyledSwitch = styled.label`
   position: relative;
@@ -37,7 +37,7 @@ const StyledSpan = styled.span`
   border-radius: 34px;
   background-color: #cccccc;
   cursor: pointer;
-  transition: 0.4s;
+  transition: 0.2s;
 
   &::before {
     position: absolute;
@@ -48,11 +48,11 @@ const StyledSpan = styled.span`
     border-radius: 50%;
     background-color: #ffffff;
     content: "";
-    transition: 0.4s;
+    transition: 0.2s;
   }
 `;
 
-const Switch: React.FunctionComponent<SwitchInterface> = (props) => {
+const Switch: React.FunctionComponent<PropsInterface> = (props) => {
   return (
     <StyledSwitch>
       <StyledInput type="checkbox" {...props} />

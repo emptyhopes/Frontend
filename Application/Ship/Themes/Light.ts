@@ -1,6 +1,6 @@
-import { ThemesInterface } from "@/Application/Containers/UI/Application/Theme/Themes/Types/ThemesInterface";
+import { ThemeInterface } from "@/Application/Ship/Themes/Types/ThemeInterface";
 
-const Light: ThemesInterface = {
+const Light: ThemeInterface = {
   header: {
     background: {
       color: "#ffffff",

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { InputInterface } from "@/Application/Containers/UI/Details/Input/Types/InputInterface";
+import { PropsInterface } from "@/Application/Containers/UI/Details/Input/Types/PropsInterface";
 
 const StyledInput = styled.input`
   padding: 14px;
@@ -14,7 +14,7 @@ const StyledInput = styled.input`
   }
 `;
 
-const Input: React.FunctionComponent<InputInterface> = (props) => {
+const Input: React.FunctionComponent<PropsInterface> = (props) => {
   return <StyledInput {...props} />;
 };
 

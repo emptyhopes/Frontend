@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
-import { IoMoonOutline, IoMoon } from "react-icons/io5";
+import { IoSunnyOutline, IoSunny } from "react-icons/io5";
 import { useState } from "react";
 
 import { UseApplicationDispatch } from "@/Application/Ship/Store/Hooks/UseApplicationDispatch";
 import { UseApplicationSelector } from "@/Application/Ship/Store/Hooks/UseApplicationSelector";
 
-import { ThemeActions } from "@/Application/Containers/UI/Application/Theme/Store/Reducers/Reducer";
+import { ThemeActions } from "@/Application/Containers/UI/Details/Theme/Store/Reducers/Reducer";
 
 import { Switch } from "@/Application/Containers/UI/Details/Switch/Switch";
-import { ThemeInterface } from "@/Application/Containers/UI/Application/Theme/Types/ThemeInterface";
+import { PropsInterface } from "@/Application/Containers/UI/Details/Theme/Types/PropsInterface";
 
 const StyledContent = styled.div`
   display: flex;
@@ -19,11 +19,11 @@ const StyledContent = styled.div`
   & svg {
     width: 20px;
     height: 20px;
-    margin: 0 15px 0 0;
+    margin: 0 15px;
   }
 `;
 
-const Theme: React.FunctionComponent<ThemeInterface> = (props) => {
+const Theme: React.FunctionComponent<PropsInterface> = (props) => {
   const dispatch = UseApplicationDispatch();
 
   const { theme } = UseApplicationSelector((state) => state.ThemeReducer);
@@ -45,8 +45,9 @@ const Theme: React.FunctionComponent<ThemeInterface> = (props) => {
 
   return (
     <StyledContent {...props}>
-      {theme === "Light" ? <IoMoonOutline /> : <IoMoon />}
+      <IoSunnyOutline />
       <Switch checked={isChecked} onChange={Change} />
+      <IoSunny />
     </StyledContent>
   );
 };

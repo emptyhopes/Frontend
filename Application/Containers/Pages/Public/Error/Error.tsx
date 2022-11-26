@@ -1,7 +1,6 @@
 import { Wrapper } from "@/Application/Containers/UI/Application/Wrapper/Wrapper";
-
-import { Breadcrumbs } from "@/Application/Containers/UI/Details/Breadcrumbs/Breadcrumbs";
 import { Container } from "@/Application/Containers/UI/Application/Container/Container";
+import { Breadcrumbs } from "@/Application/Containers/UI/Details/Breadcrumbs/Breadcrumbs";
 
 const Error: React.FunctionComponent = () => {
   return (

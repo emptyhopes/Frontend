@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 import { Wrapper } from "@/Application/Containers/UI/Application/Wrapper/Wrapper";
 import { Container } from "@/Application/Containers/UI/Application/Container/Container";
+import { Breadcrumbs } from "@/Application/Containers/UI/Details/Breadcrumbs/Breadcrumbs";
 
 import { Button } from "@/Application/Containers/UI/Details/Button/Button";
 import { Input } from "@/Application/Containers/UI/Details/Input/Input";
 import { Switch } from "@/Application/Containers/UI/Details/Switch/Switch";
-import { Breadcrumbs } from "@/Application/Containers/UI/Details/Breadcrumbs/Breadcrumbs";
 
 const StyledContent = styled.div`
   display: flex;

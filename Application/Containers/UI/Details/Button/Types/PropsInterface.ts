@@ -1,7 +1,7 @@
-interface ButtonInterface {
+interface PropsInterface {
   children?: React.ReactNode;
   style?: React.CSSProperties;
   onClick?: () => void;
 }
 
-export { ButtonInterface };
+export { PropsInterface };

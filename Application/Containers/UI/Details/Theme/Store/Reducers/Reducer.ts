@@ -1,14 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { State } from "@/Application/Containers/UI/Application/Theme/Store/States/State";
+import { State } from "@/Application/Containers/UI/Details/Theme/Store/States/State";
 
-import { ThemeProps } from "@/Application/Containers/UI/Application/Theme/Store/Types/ThemeInterface";
+import { SetThemePayloadInterface } from "@/Application/Containers/UI/Details/Theme/Store/Types/PayloadInterface";
 
 const { reducer, actions } = createSlice({
   name: "Theme",
   initialState: State,
   reducers: {
-    SetTheme(state, props: ThemeProps): void {
+    SetTheme(state, props: SetThemePayloadInterface): void {
       state.theme = props.payload;
     },
   },

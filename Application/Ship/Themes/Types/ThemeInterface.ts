@@ -1,4 +1,4 @@
-interface ThemesInterface {
+interface ThemeInterface {
   header: {
     background: {
       color: string;
@@ -24,4 +24,4 @@ interface ThemesInterface {
   };
 }
 
-export { ThemesInterface };
+export { ThemeInterface };

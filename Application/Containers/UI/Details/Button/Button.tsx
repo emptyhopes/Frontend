@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { ButtonInterface } from "@/Application/Containers/UI/Details/Button/Types/ButtonInterface";
+import { PropsInterface } from "@/Application/Containers/UI/Details/Button/Types/PropsInterface";
 
 const StyledButton = styled.button`
   padding: 10px 20px;
@@ -14,7 +14,7 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button: React.FunctionComponent<ButtonInterface> = (props) => {
+const Button: React.FunctionComponent<PropsInterface> = (props) => {
   return <StyledButton {...props} />;
 };
 

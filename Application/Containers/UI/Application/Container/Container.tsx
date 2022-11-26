@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { ContainerInterface } from "@/Application/Containers/UI/Application/Container/Types/ContainerInterface";
+import { PropsInterface } from "@/Application/Containers/UI/Application/Container/Types/PropsInterface";
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -9,7 +9,7 @@ const StyledContainer = styled.div`
   margin: 0 auto;
 `;
 
-const Container: React.FunctionComponent<ContainerInterface> = (props) => {
+const Container: React.FunctionComponent<PropsInterface> = (props) => {
   return <StyledContainer {...props} />;
 };
 

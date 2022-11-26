@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { Link, useLocation } from "react-router-dom";
 
-import { Theme } from "@/Application/Containers/UI/Application/Theme/Theme";
+import { Theme } from "@/Application/Containers/UI/Details/Theme/Theme";
 
 const StyledNavbar = styled.div`
   display: flex;
