@@ -3,6 +3,8 @@ import { UsersAPI } from "@/Application/Containers/Middlewares/Users/UsersMiddle
 import { Wrapper } from "@/Application/Containers/UI/Application/Wrapper/Wrapper";
 import { Container } from "@/Application/Containers/UI/Application/Container/Container";
 
+import { Breadcrumbs } from "@/Application/Containers/UI/Details/Breadcrumbs/Breadcrumbs";
+
 const Users: React.FunctionComponent = () => {
   const { isLoading, isError, data: users } = UsersAPI.useGetUsersQuery(10);
   return (
@@ -10,6 +12,7 @@ const Users: React.FunctionComponent = () => {
       <Wrapper>
         <Container>
           <>
+            <Breadcrumbs />
             {isLoading && <h1>Идёт загрузка...</h1>}
             {isError && <h1>Произошла ошибка.</h1>}
             {users &&

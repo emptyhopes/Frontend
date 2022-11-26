@@ -6,6 +6,7 @@ import { Container } from "@/Application/Containers/UI/Application/Container/Con
 import { Button } from "@/Application/Containers/UI/Details/Button/Button";
 import { Input } from "@/Application/Containers/UI/Details/Input/Input";
 import { Switch } from "@/Application/Containers/UI/Details/Switch/Switch";
+import { Breadcrumbs } from "@/Application/Containers/UI/Details/Breadcrumbs/Breadcrumbs";
 
 const StyledContent = styled.div`
   display: flex;
@@ -19,6 +20,7 @@ const Home: React.FunctionComponent = () => {
     <>
       <Wrapper>
         <Container>
+          <Breadcrumbs />
           <h1 style={{ display: "flex", justifyContent: "center" }}>Home</h1>
           <StyledContent>
             <Button>Кнопка</Button>

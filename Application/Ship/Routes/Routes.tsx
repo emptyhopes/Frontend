@@ -16,7 +16,6 @@ const Routes = () => {
       element: <Home />,
       children: [],
     },
-
     {
       path: "/users",
       index: false,
