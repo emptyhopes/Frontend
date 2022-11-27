@@ -2,12 +2,12 @@ import * as React from "react";
 
 import { Navigate } from "react-router-dom";
 
-import { AuthenticationProviderInterface } from "@/Application/Ship/Providers/Authentication/Types/AuthenticationProviderInterface";
+import { PropsInterface } from "@/Application/Ship/Providers/Authentication/Types/PropsInterface";
 
-const AuthenticationProvider: React.FunctionComponent<AuthenticationProviderInterface> = (props) => {
+const AuthenticationProvider: React.FunctionComponent<PropsInterface> = (props) => {
   const authenticate = false;
 
-  if (!authenticate) return <Navigate to="/error" />;
+  if (!authenticate) return <Navigate to="/login" />;
 
   return <React.Fragment>{props.children}</React.Fragment>;
 };

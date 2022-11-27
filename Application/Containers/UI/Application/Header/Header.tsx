@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Logo from "@/Application/Ship/Assets/Images/Logo.png";
 
 import { Container } from "@/Application/Containers/UI/Application/Container/Container";
-import { Navbar } from "@/Application/Containers/UI/Application/Header/Components/Navbar/Navbar";
+import { Navbar } from "@/Application/Containers/UI/Application/Header/Components/Navbar";
 
 const StyledHeader = styled.header`
   background-color: ${(props) => props.theme.header.background.color};

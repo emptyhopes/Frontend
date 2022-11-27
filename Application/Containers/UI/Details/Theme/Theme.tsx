@@ -1,15 +1,16 @@
 import styled from "styled-components";
 
-import { IoSunnyOutline, IoSunny } from "react-icons/io5";
 import { useState } from "react";
+import { IoSunnyOutline, IoSunny } from "react-icons/io5";
 
 import { UseApplicationDispatch } from "@/Application/Ship/Store/Hooks/UseApplicationDispatch";
 import { UseApplicationSelector } from "@/Application/Ship/Store/Hooks/UseApplicationSelector";
 
 import { ThemeActions } from "@/Application/Containers/UI/Details/Theme/Store/Reducers/Reducer";
 
-import { Switch } from "@/Application/Containers/UI/Details/Switch/Switch";
 import { PropsInterface } from "@/Application/Containers/UI/Details/Theme/Types/PropsInterface";
+
+import { Switch } from "@/Application/Containers/UI/Details/Switch/Switch";
 
 const StyledContent = styled.div`
   display: flex;
