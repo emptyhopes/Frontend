@@ -14,7 +14,7 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button: React.FunctionComponent<PropsInterface> = (props) => {
+const Button: React.FunctionComponent<PropsInterface> = (props: PropsInterface) => {
   return <StyledButton {...props} />;
 };
 

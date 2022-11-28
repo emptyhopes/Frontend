@@ -7,7 +7,7 @@ const StyledWrapper = styled.main`
   background-color: ${(props) => props.theme.header.background.color};
 `;
 
-const Wrapper: React.FunctionComponent<PropsInterface> = (props) => {
+const Wrapper: React.FunctionComponent<PropsInterface> = (props: PropsInterface) => {
   return (
     <>
       <StyledWrapper {...props} />

@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 import { UseApplicationSelector } from "@/Application/Ship/Store/Hooks/UseApplicationSelector";
 
+import { Header } from "@/Application/Containers/UI/Application/Header/Header";
+import { Footer } from "@/Application/Containers/UI/Application/Footer/Footer";
+
 import { Wrapper } from "@/Application/Containers/UI/Application/Wrapper/Wrapper";
 import { Container } from "@/Application/Containers/UI/Application/Container/Container";
 import { Breadcrumbs } from "@/Application/Containers/UI/Details/Breadcrumbs/Breadcrumbs";
@@ -19,6 +22,12 @@ const StyledContent = styled.div`
   margin: 100px 0;
 `;
 
+const StyledTitle = styled.h1`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const Home: React.FunctionComponent = () => {
   const navigate = useNavigate();
 
@@ -26,10 +35,11 @@ const Home: React.FunctionComponent = () => {
 
   return (
     <>
+      <Header />
       <Wrapper>
         <Container>
           <Breadcrumbs />
-          <h1>Home</h1>
+          <StyledTitle>Home</StyledTitle>
           <StyledContent>
             <Button>Кнопка</Button>
             <Input placeholder={"Введите имя"} />
@@ -53,6 +63,7 @@ const Home: React.FunctionComponent = () => {
           </StyledContent>
         </Container>
       </Wrapper>
+      <Footer />
     </>
   );
 };

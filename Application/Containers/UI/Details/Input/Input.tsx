@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { PropsInterface } from "@/Application/Containers/UI/Details/Input/Types/PropsInterface";
 
 const StyledInput = styled.input`
-  width: 400px;
+  width: 500px;
   padding: 14px;
   border: 1px solid #c0c0c0;
   border-radius: 12px;
@@ -15,7 +15,7 @@ const StyledInput = styled.input`
   }
 `;
 
-const Input: React.FunctionComponent<PropsInterface> = (props) => {
+const Input: React.FunctionComponent<PropsInterface> = (props: PropsInterface) => {
   return <StyledInput {...props} />;
 };
 

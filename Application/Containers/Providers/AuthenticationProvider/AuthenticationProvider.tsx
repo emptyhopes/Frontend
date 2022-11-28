@@ -8,7 +8,7 @@ import { AuthenticationActions } from "@/Application/Containers/Store/Authentica
 
 import { AuthenticationMiddleware } from "@/Application/Containers/Middlewares/Authentication/AuthenticationMiddleware";
 
-const AuthenticationProvider: React.FunctionComponent<PropsInterface> = (props) => {
+const AuthenticationProvider: React.FunctionComponent<PropsInterface> = (props: PropsInterface) => {
   const navigate = useNavigate();
   const dispatch = UseApplicationDispatch();
 
@@ -30,7 +30,7 @@ const AuthenticationProvider: React.FunctionComponent<PropsInterface> = (props) 
     });
 
     response.catch(() => {
-      navigate("/error");
+      navigate("/");
     });
   };
 
@@ -40,7 +40,7 @@ const AuthenticationProvider: React.FunctionComponent<PropsInterface> = (props) 
     }
   }, []);
 
-  return <div {...props}></div>;
+  return <>{props.children}</>;
 };
 
 export { AuthenticationProvider };

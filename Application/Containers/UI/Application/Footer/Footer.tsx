@@ -11,7 +11,9 @@ const Footer: React.FunctionComponent = () => {
   return (
     <>
       <StyledFooter>
-        <Container></Container>
+        <Container flex VerticalCenter HorizontalCenter>
+          <h1>Footer</h1>
+        </Container>
       </StyledFooter>
     </>
   );

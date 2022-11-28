@@ -52,7 +52,7 @@ const StyledSpan = styled.span`
   }
 `;
 
-const Switch: React.FunctionComponent<PropsInterface> = (props) => {
+const Switch: React.FunctionComponent<PropsInterface> = (props: PropsInterface) => {
   return (
     <StyledSwitch>
       <StyledInput type="checkbox" {...props} />

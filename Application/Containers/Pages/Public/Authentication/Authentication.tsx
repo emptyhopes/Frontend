@@ -1,11 +1,8 @@
-import styled from "styled-components";
-
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import { Wrapper } from "@/Application/Containers/UI/Application/Wrapper/Wrapper";
 import { Container } from "@/Application/Containers/UI/Application/Container/Container";
-import { Breadcrumbs } from "@/Application/Containers/UI/Details/Breadcrumbs/Breadcrumbs";
 
 import { Input } from "@/Application/Containers/UI/Details/Input/Input";
 import { Button } from "@/Application/Containers/UI/Details/Button/Button";
@@ -13,21 +10,6 @@ import { Button } from "@/Application/Containers/UI/Details/Button/Button";
 import { UseApplicationDispatch } from "@/Application/Ship/Store/Hooks/UseApplicationDispatch";
 import { AuthenticationActions } from "@/Application/Containers/Store/Authentication/Slices/Slice";
 import { AuthenticationMiddleware } from "@/Application/Containers/Middlewares/Authentication/AuthenticationMiddleware";
-
-const StyledContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 50px 0;
-
-  & input + input {
-    margin: 20px 0 0;
-  }
-
-  & input + button {
-    margin: 20px 0 0;
-  }
-`;
 
 const Authentication: React.FunctionComponent = () => {
   const navigate = useNavigate();
@@ -52,21 +34,29 @@ const Authentication: React.FunctionComponent = () => {
       navigate("/");
     });
 
-    response.catch(() => {
-      navigate("/error");
+    response.catch((error) => {
+      navigate("/error", { state: { error: error } });
     });
   };
 
   return (
     <>
       <Wrapper>
-        <Container>
-          <Breadcrumbs />
-          <StyledContent>
-            <Input onChange={(event) => SetEmail(event.target.value)} placeholder="Введите электронный адрес" />
-            <Input onChange={(event) => SetPassword(event.target.value)} placeholder="Введите пароль" />
-            <Button onClick={() => AuthenticateFunction()}>Войти</Button>
-          </StyledContent>
+        <Container flex column VerticalCenter HorizontalCenter>
+          <Link style={{ margin: "0 0 20px 0", color: "blue" }} to={"/"}>
+            Вернуться на главную страницу
+          </Link>
+          <Input
+            style={{ margin: "0 0 20px 0" }}
+            onChange={(event) => SetEmail(event.target.value)}
+            placeholder="Введите электронный адрес"
+          />
+          <Input
+            style={{ margin: "0 0 20px 0" }}
+            onChange={(event) => SetPassword(event.target.value)}
+            placeholder="Введите пароль"
+          />
+          <Button onClick={() => AuthenticateFunction()}>Войти</Button>
         </Container>
       </Wrapper>
     </>
