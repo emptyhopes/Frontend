@@ -1,11 +1,11 @@
-import { UsersAPI } from "@/Application/Containers/Middlewares/Users/UsersMiddleware";
+import { UsersMiddleware } from "@/Application/Containers/Middlewares/Users/UsersMiddleware";
 
 import { Wrapper } from "@/Application/Containers/UI/Application/Wrapper/Wrapper";
 import { Container } from "@/Application/Containers/UI/Application/Container/Container";
 import { Breadcrumbs } from "@/Application/Containers/UI/Details/Breadcrumbs/Breadcrumbs";
 
 const Users: React.FunctionComponent = () => {
-  const { isLoading, isError, data: users } = UsersAPI.useGetUsersQuery(10);
+  const { isLoading, isError, data: users } = UsersMiddleware.useGetUsersQuery(10);
   return (
     <>
       <Wrapper>

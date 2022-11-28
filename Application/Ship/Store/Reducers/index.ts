@@ -1,15 +1,17 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
-import { UsersAPI } from "@/Application/Containers/Middlewares/Users/UsersMiddleware";
+import { UsersMiddleware } from "@/Application/Containers/Middlewares/Users/UsersMiddleware";
+import { AuthenticationMiddleware } from "@/Application/Containers/Middlewares/Authentication/AuthenticationMiddleware";
 
-import { ThemeReducer } from "@/Application/Containers/UI/Details/Theme/Store/Reducers/Reducer";
-import { UsersReducer } from "@/Application/Containers/Pages/Public/Users/Store/Reducers/Reducer";
+import { AuthenticationReducer } from "@/Application/Containers/Store/Authentication/Slices/Slice";
+import { ThemeReducer } from "@/Application/Containers/Store/Theme/Slices/Slice";
 
 const reducers = combineReducers({
-  [UsersAPI.reducerPath]: UsersAPI.reducer,
+  [UsersMiddleware.reducerPath]: UsersMiddleware.reducer,
+  [AuthenticationMiddleware.reducerPath]: AuthenticationMiddleware.reducer,
 
+  AuthenticationReducer,
   ThemeReducer,
-  UsersReducer,
 });
 
 export type RootState = ReturnType<typeof reducers>;

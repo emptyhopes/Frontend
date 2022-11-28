@@ -4,10 +4,12 @@ import { Navigate } from "react-router-dom";
 
 import { PropsInterface } from "@/Application/Ship/Providers/Authentication/Types/PropsInterface";
 
-const AuthenticationProvider: React.FunctionComponent<PropsInterface> = (props) => {
-  const authenticate = false;
+import { UseApplicationSelector } from "@/Application/Ship/Store/Hooks/UseApplicationSelector";
 
-  if (!authenticate) return <Navigate to="/login" />;
+const AuthenticationProvider: React.FunctionComponent<PropsInterface> = (props) => {
+  const { isAuthentication } = UseApplicationSelector((state) => state.AuthenticationReducer);
+
+  if (!isAuthentication) return <Navigate to="/error" replace />;
 
   return <React.Fragment>{props.children}</React.Fragment>;
 };

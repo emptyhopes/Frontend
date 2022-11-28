@@ -1,13 +1,13 @@
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider as Provider } from "styled-components";
 
 import { UseApplicationSelector } from "@/Application/Ship/Store/Hooks/UseApplicationSelector";
 
-import { PropsInterface } from "@/Application/Containers/UI/Application/ThemeWrapper/Types/PropsInterface";
+import { PropsInterface } from "@/Application/Containers/Providers/ThemeProvider/Types/PropsInterface";
 
 import { Light } from "@/Application/Ship/Themes/Light";
 import { Dark } from "@/Application/Ship/Themes/Dark";
 
-const ThemeWrapper: React.FunctionComponent<PropsInterface> = (props) => {
+const ThemeProvider: React.FunctionComponent<PropsInterface> = (props) => {
   const theme = UseApplicationSelector((state) => state.ThemeReducer.theme);
 
   const GetTheme = () => {
@@ -17,9 +17,9 @@ const ThemeWrapper: React.FunctionComponent<PropsInterface> = (props) => {
 
   return (
     <>
-      <ThemeProvider theme={GetTheme()} {...props}></ThemeProvider>
+      <Provider theme={GetTheme()} {...props}></Provider>
     </>
   );
 };
 
-export { ThemeWrapper };
+export { ThemeProvider };

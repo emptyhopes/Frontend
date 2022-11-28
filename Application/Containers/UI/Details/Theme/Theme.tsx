@@ -6,7 +6,7 @@ import { IoSunnyOutline, IoSunny } from "react-icons/io5";
 import { UseApplicationDispatch } from "@/Application/Ship/Store/Hooks/UseApplicationDispatch";
 import { UseApplicationSelector } from "@/Application/Ship/Store/Hooks/UseApplicationSelector";
 
-import { ThemeActions } from "@/Application/Containers/UI/Details/Theme/Store/Reducers/Reducer";
+import { ThemeActions } from "@/Application/Containers/Store/Theme/Slices/Slice";
 
 import { PropsInterface } from "@/Application/Containers/UI/Details/Theme/Types/PropsInterface";
 
