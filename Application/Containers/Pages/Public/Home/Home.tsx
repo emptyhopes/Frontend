@@ -16,6 +16,7 @@ import { Button } from "@/Application/Containers/UI/Details/Button/Button";
 import { Input } from "@/Application/Containers/UI/Details/Input/Input";
 import { Switch } from "@/Application/Containers/UI/Details/Switch/Switch";
 import { Modal } from "@/Application/Containers/UI/Details/Modal/Modal";
+import { Loading } from "@/Application/Containers/UI/Details/Loading/Loading";
 
 const StyledContent = styled.div`
   display: flex;
@@ -68,6 +69,7 @@ const Home: React.FunctionComponent = (): React.ReactElement => {
           <StyledContent>
             <Button onClick={() => SetActivated(true)}>Modal</Button>
             <Modal isActivated={isActivated} SetActivated={SetActivated} />
+            <Loading page />
           </StyledContent>
         </Container>
       </Wrapper>

@@ -15,18 +15,15 @@ import { AuthenticationMiddleware } from "@/Application/Containers/Middlewares/A
 const Authentication: React.FunctionComponent = (): React.ReactElement => {
   const navigate = useNavigate();
   const dispatch = UseApplicationDispatch();
-  const [AuthenticateMiddleware] = AuthenticationMiddleware.useAuthenticateMutation();
+  const [AuthenticateMiddleware, { isLoading }] = AuthenticationMiddleware.useAuthenticateMutation();
 
   const [email, SetEmail] = useState("");
   const [password, SetPassword] = useState("");
 
   const [error, SetError] = useState("");
-  const [isFetching, SetFetching] = useState(false);
   const [isActivated, SetActivated] = useState(false);
 
   const AuthenticateFunction = () => {
-    SetFetching(true);
-
     const response = AuthenticateMiddleware({ email: email, password: password }).unwrap();
 
     response.then((data) => {
@@ -42,13 +39,11 @@ const Authentication: React.FunctionComponent = (): React.ReactElement => {
     });
 
     response.catch((error) => {
-      if (error.error) SetError(error.error);
-      if (error.data.message) SetError(error.data.message);
+      if (error?.error) SetError(error?.error);
+      if (error?.data?.message) SetError(error?.data?.message);
 
       SetActivated(true);
     });
-
-    SetFetching(false);
   };
 
   return (
@@ -75,7 +70,7 @@ const Authentication: React.FunctionComponent = (): React.ReactElement => {
             onChange={(event) => SetPassword(event.target.value)}
             placeholder="Введите пароль"
           />
-          <Button disabled={isActivated === true ? true : isFetching} onClick={() => AuthenticateFunction()}>
+          <Button disabled={isActivated === true ? isActivated : isLoading} onClick={() => AuthenticateFunction()}>
             Войти
           </Button>
         </Container>

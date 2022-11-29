@@ -12,18 +12,15 @@ import { AuthenticationMiddleware } from "@/Application/Containers/Middlewares/A
 
 const Registration: React.FunctionComponent = (): React.ReactElement => {
   const navigate = useNavigate();
-  const [RegistrationMiddleware] = AuthenticationMiddleware.useRegistrationMutation();
+  const [RegistrationMiddleware, { isLoading }] = AuthenticationMiddleware.useRegistrationMutation();
 
   const [email, SetEmail] = useState("");
   const [password, SetPassword] = useState("");
 
   const [error, SetError] = useState("");
-  const [isFetching, SetFetching] = useState(false);
   const [isActivated, SetActivated] = useState(false);
 
-  const RegistrationFunction = async () => {
-    SetFetching(true);
-
+  const RegistrationFunction = () => {
     const response = RegistrationMiddleware({ email: email, password: password }).unwrap();
 
     response.then(() => {
@@ -31,13 +28,11 @@ const Registration: React.FunctionComponent = (): React.ReactElement => {
     });
 
     response.catch((error) => {
-      if (error.error) SetError(error.error);
-      if (error.data.message) SetError(error.data.message);
+      if (error?.error) SetError(error?.error);
+      if (error?.data?.message) SetError(error?.data?.message);
 
       SetActivated(true);
     });
-
-    SetFetching(false);
   };
 
   return (
@@ -63,7 +58,7 @@ const Registration: React.FunctionComponent = (): React.ReactElement => {
             onChange={(event) => SetPassword(event.target.value)}
             placeholder="Введите пароль"
           />
-          <Button disabled={isActivated === true ? true : isFetching} onClick={() => RegistrationFunction()}>
+          <Button disabled={isActivated === true ? isActivated : isLoading} onClick={() => RegistrationFunction()}>
             Зарегистрироваться
           </Button>
         </Container>
