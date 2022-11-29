@@ -47,7 +47,7 @@ const StyledTheme = styled(Theme)`
   margin: 0 0 0 60px;
 `;
 
-const Navbar: React.FunctionComponent = () => {
+const Navbar: React.FunctionComponent = (): React.ReactElement => {
   const location = useLocation();
 
   const GetElementLink = (url: string, children: React.ReactNode) => {

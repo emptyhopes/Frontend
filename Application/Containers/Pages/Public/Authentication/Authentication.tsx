@@ -6,12 +6,13 @@ import { Container } from "@/Application/Containers/UI/Application/Container/Con
 
 import { Input } from "@/Application/Containers/UI/Details/Input/Input";
 import { Button } from "@/Application/Containers/UI/Details/Button/Button";
+import { Notification } from "@/Application/Containers/UI/Details/Notification/Notification";
 
 import { UseApplicationDispatch } from "@/Application/Ship/Store/Hooks/UseApplicationDispatch";
 import { AuthenticationActions } from "@/Application/Containers/Store/Authentication/Slices/Slice";
 import { AuthenticationMiddleware } from "@/Application/Containers/Middlewares/Authentication/AuthenticationMiddleware";
 
-const Authentication: React.FunctionComponent = () => {
+const Authentication: React.FunctionComponent = (): React.ReactElement => {
   const navigate = useNavigate();
   const dispatch = UseApplicationDispatch();
   const [AuthenticateMiddleware] = AuthenticationMiddleware.useAuthenticateMutation();
@@ -19,7 +20,13 @@ const Authentication: React.FunctionComponent = () => {
   const [email, SetEmail] = useState("");
   const [password, SetPassword] = useState("");
 
+  const [error, SetError] = useState("");
+  const [isFetching, SetFetching] = useState(false);
+  const [isActivated, SetActivated] = useState(false);
+
   const AuthenticateFunction = () => {
+    SetFetching(true);
+
     const response = AuthenticateMiddleware({ email: email, password: password }).unwrap();
 
     response.then((data) => {
@@ -35,17 +42,29 @@ const Authentication: React.FunctionComponent = () => {
     });
 
     response.catch((error) => {
-      navigate("/error", { state: { error: error } });
+      if (error.error) SetError(error.error);
+      if (error.data.message) SetError(error.data.message);
+
+      SetActivated(true);
     });
+
+    SetFetching(false);
   };
 
   return (
     <>
       <Wrapper>
         <Container flex column VerticalCenter HorizontalCenter>
+          {isActivated && (
+            <Notification isActivated={isActivated} SetActivated={SetActivated}>
+              {error}
+            </Notification>
+          )}
+
           <Link style={{ margin: "0 0 20px 0", color: "blue" }} to={"/"}>
             Вернуться на главную страницу
           </Link>
+
           <Input
             style={{ margin: "0 0 20px 0" }}
             onChange={(event) => SetEmail(event.target.value)}
@@ -56,7 +75,9 @@ const Authentication: React.FunctionComponent = () => {
             onChange={(event) => SetPassword(event.target.value)}
             placeholder="Введите пароль"
           />
-          <Button onClick={() => AuthenticateFunction()}>Войти</Button>
+          <Button disabled={isActivated === true ? true : isFetching} onClick={() => AuthenticateFunction()}>
+            Войти
+          </Button>
         </Container>
       </Wrapper>
     </>

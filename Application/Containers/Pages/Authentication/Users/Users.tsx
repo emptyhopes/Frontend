@@ -4,7 +4,7 @@ import { Wrapper } from "@/Application/Containers/UI/Application/Wrapper/Wrapper
 import { Container } from "@/Application/Containers/UI/Application/Container/Container";
 import { Breadcrumbs } from "@/Application/Containers/UI/Details/Breadcrumbs/Breadcrumbs";
 
-const Users: React.FunctionComponent = () => {
+const Users: React.FunctionComponent = (): React.ReactElement => {
   const { isLoading, isError, data: users } = UsersMiddleware.useGetUsersQuery(10);
   return (
     <>

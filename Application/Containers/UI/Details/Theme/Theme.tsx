@@ -24,7 +24,7 @@ const StyledContent = styled.div`
   }
 `;
 
-const Theme: React.FunctionComponent<PropsInterface> = (props: PropsInterface) => {
+const Theme: React.FunctionComponent<PropsInterface> = (props: PropsInterface): React.ReactElement => {
   const dispatch = UseApplicationDispatch();
 
   const { theme } = UseApplicationSelector((state) => state.ThemeReducer);

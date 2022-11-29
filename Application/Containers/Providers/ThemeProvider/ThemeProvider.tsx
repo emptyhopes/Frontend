@@ -7,7 +7,7 @@ import { PropsInterface } from "@/Application/Containers/Providers/ThemeProvider
 import { Light } from "@/Application/Ship/Themes/Light";
 import { Dark } from "@/Application/Ship/Themes/Dark";
 
-const ThemeProvider: React.FunctionComponent<PropsInterface> = (props: PropsInterface) => {
+const ThemeProvider: React.FunctionComponent<PropsInterface> = (props: PropsInterface): React.ReactElement => {
   const theme = UseApplicationSelector((state) => state.ThemeReducer.theme);
 
   const GetTheme = () => {

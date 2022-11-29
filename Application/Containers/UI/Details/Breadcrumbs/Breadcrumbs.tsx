@@ -23,7 +23,7 @@ const StyledLi = styled.li`
   }
 `;
 
-const Breadcrumbs: React.FunctionComponent = () => {
+const Breadcrumbs: React.FunctionComponent = (): React.ReactElement => {
   const { pathname } = useLocation();
   const pathnames = pathname.split("/").filter((value) => value);
 

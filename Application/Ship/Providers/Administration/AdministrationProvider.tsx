@@ -6,7 +6,7 @@ import { PropsInterface } from "@/Application/Ship/Providers/Authentication/Type
 
 import { UseApplicationSelector } from "@/Application/Ship/Store/Hooks/UseApplicationSelector";
 
-const AdministrationProvider: React.FunctionComponent<PropsInterface> = (props: PropsInterface) => {
+const AdministrationProvider: React.FunctionComponent<PropsInterface> = (props: PropsInterface): React.ReactElement => {
   const { email } = UseApplicationSelector((state) => state.AuthenticationReducer);
   const role = email === "literallymyfault@gmail.com" ? "ADMIN" : "USER";
 

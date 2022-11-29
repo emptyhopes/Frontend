@@ -15,7 +15,7 @@ const StyledInput = styled.input`
   }
 `;
 
-const Input: React.FunctionComponent<PropsInterface> = (props: PropsInterface) => {
+const Input: React.FunctionComponent<PropsInterface> = (props: PropsInterface): React.ReactElement => {
   return <StyledInput {...props} />;
 };
 

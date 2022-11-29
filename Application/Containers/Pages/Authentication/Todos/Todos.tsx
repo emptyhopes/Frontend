@@ -10,7 +10,7 @@ const StyledTitle = styled.h1`
   justify-content: center;
 `;
 
-const Todos: React.FunctionComponent = () => {
+const Todos: React.FunctionComponent = (): React.ReactElement => {
   return (
     <>
       <Wrapper>

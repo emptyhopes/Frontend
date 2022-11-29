@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { UseApplicationSelector } from "@/Application/Ship/Store/Hooks/UseApplicationSelector";
@@ -14,6 +15,7 @@ import { Breadcrumbs } from "@/Application/Containers/UI/Details/Breadcrumbs/Bre
 import { Button } from "@/Application/Containers/UI/Details/Button/Button";
 import { Input } from "@/Application/Containers/UI/Details/Input/Input";
 import { Switch } from "@/Application/Containers/UI/Details/Switch/Switch";
+import { Modal } from "@/Application/Containers/UI/Details/Modal/Modal";
 
 const StyledContent = styled.div`
   display: flex;
@@ -28,8 +30,10 @@ const StyledTitle = styled.h1`
   justify-content: center;
 `;
 
-const Home: React.FunctionComponent = () => {
+const Home: React.FunctionComponent = (): React.ReactElement => {
   const navigate = useNavigate();
+
+  const [isActivated, SetActivated] = useState(false);
 
   const { isAuthentication } = UseApplicationSelector((state) => state.AuthenticationReducer);
 
@@ -60,6 +64,10 @@ const Home: React.FunctionComponent = () => {
           <StyledContent>
             <Button onClick={() => navigate("/admin")}>Admin</Button>
             <Button onClick={() => navigate("/analytics")}>Analytics</Button>
+          </StyledContent>
+          <StyledContent>
+            <Button onClick={() => SetActivated(true)}>Modal</Button>
+            <Modal isActivated={isActivated} SetActivated={SetActivated} />
           </StyledContent>
         </Container>
       </Wrapper>

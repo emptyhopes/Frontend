@@ -9,7 +9,7 @@ const StyledLink = styled(Link)`
   color: blue;
 `;
 
-const Error: React.FunctionComponent = () => {
+const Error: React.FunctionComponent = (): React.ReactElement => {
   const location = useLocation();
 
   return (

@@ -7,7 +7,7 @@ const StyledFooter = styled.footer`
   background-color: ${(props) => props.theme.header.background.color};
 `;
 
-const Footer: React.FunctionComponent = () => {
+const Footer: React.FunctionComponent = (): React.ReactElement => {
   return (
     <>
       <StyledFooter>

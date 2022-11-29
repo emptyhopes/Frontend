@@ -8,7 +8,7 @@ import { AuthenticationActions } from "@/Application/Containers/Store/Authentica
 import { Wrapper } from "@/Application/Containers/UI/Application/Wrapper/Wrapper";
 import { Container } from "@/Application/Containers/UI/Application/Container/Container";
 
-const Logout: React.FunctionComponent = () => {
+const Logout: React.FunctionComponent = (): React.ReactElement => {
   const dispatch = UseApplicationDispatch();
   const navigate = useNavigate();
 

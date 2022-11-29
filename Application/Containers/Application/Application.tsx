@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/Application/Containers/Providers/ThemeProvider/
 
 import { Routes } from "@/Application/Ship/Routes/Routes";
 
-const Application: React.FunctionComponent = () => {
+const Application: React.FunctionComponent = (): React.ReactElement => {
   return (
     <>
       <AuthenticationProvider>

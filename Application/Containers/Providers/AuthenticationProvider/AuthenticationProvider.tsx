@@ -8,7 +8,7 @@ import { AuthenticationActions } from "@/Application/Containers/Store/Authentica
 
 import { AuthenticationMiddleware } from "@/Application/Containers/Middlewares/Authentication/AuthenticationMiddleware";
 
-const AuthenticationProvider: React.FunctionComponent<PropsInterface> = (props: PropsInterface) => {
+const AuthenticationProvider: React.FunctionComponent<PropsInterface> = (props: PropsInterface): React.ReactElement => {
   const navigate = useNavigate();
   const dispatch = UseApplicationDispatch();
 
