@@ -69,7 +69,7 @@ const Home: React.FunctionComponent = (): React.ReactElement => {
           <StyledContent>
             <Button onClick={() => SetActivated(true)}>Modal</Button>
             <Modal isActivated={isActivated} SetActivated={SetActivated} />
-            <Loading page />
+            <Loading />
           </StyledContent>
         </Container>
       </Wrapper>
