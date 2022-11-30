@@ -38,7 +38,6 @@ const StyledLoading = styled.div`
   border-color: #000000 transparent;
   border-radius: 50%;
   animation: ${rotate} 1.5s linear infinite;
-  mix-blend-mode: overlay;
 `;
 
 const Loading: React.FunctionComponent<PropsInterface> = (props: PropsInterface): React.ReactElement => {
