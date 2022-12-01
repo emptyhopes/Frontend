@@ -10,7 +10,6 @@ import { ServerStyleSheet } from "styled-components";
 
 import { store } from "@/Application/Ship/Store/index";
 import { Application } from "@/Application/Containers/Application/Application";
-import { Paths } from "@/Application/Ship/Utils/Paths/Paths";
 
 const port = 80;
 
@@ -36,7 +35,7 @@ server.get(
 server.use("*", (request, response) => {
   const sheet = new ServerStyleSheet();
 
-  let HTML = readFileSync(Paths.GetAbsolutePath(Paths.paths.absolute.output, Paths.combined.production.html.index), {
+  let HTML = readFileSync("../index.html", {
     encoding: "utf-8",
   });
 
