@@ -7,7 +7,7 @@ class Paths extends null {
     absolute: {
       context: resolve(this.root),
       application: resolve(this.root, "Application"),
-      output: resolve(this.root, "Build", "static"),
+      output: resolve(this.root, "Build"),
       template: {
         index: resolve(this.root, "Application", "Ship", "Public", "index.html"),
       },
@@ -38,15 +38,32 @@ class Paths extends null {
     },
 
     relative: {
-      javascript: "javascript",
-      styles: "styles",
-      images: "assets" + "/" + "images",
-      fonts: "assets" + "/" + "fonts",
+      html: "static" + "/" + "",
+      javascript: {
+        development: {
+          index: "static" + "/" + "javascript",
+        },
+        production: {
+          spa: {
+            index: "static" + "/" + "javascript",
+          },
+          ssr: {
+            index: "static" + "/" + "javascript",
+            server: "static" + "/" + "server",
+          },
+        },
+      },
+      styles: "static" + "/" + "styles",
+      images: "static" + "/" + "assets" + "/" + "images",
+      fonts: "static" + "/" + "assets" + "/" + "fonts",
     },
   };
 
   static filenames = {
     development: {
+      html: {
+        index: "index.html",
+      },
       javascript: {
         index: "[name].js",
       },
@@ -62,6 +79,9 @@ class Paths extends null {
       },
     },
     production: {
+      html: {
+        index: "index.html",
+      },
       javascript: {
         index: "[name].[contenthash].js",
         server: "[name].[contenthash].js",
@@ -82,10 +102,10 @@ class Paths extends null {
   static combined = {
     development: {
       javascript: {
-        index: this.paths.relative.javascript + "/" + this.filenames.development.javascript.index,
+        index: this.paths.relative.javascript.development.index + "/" + this.filenames.development.javascript.index,
       },
       html: {
-        index: "index.html",
+        index: this.paths.relative.html + "/" + this.filenames.development.html.index,
       },
       styles: {
         index: this.paths.relative.styles + "/" + this.filenames.development.styles.index,
@@ -100,11 +120,17 @@ class Paths extends null {
     },
     production: {
       javascript: {
-        index: this.paths.relative.javascript + "/" + this.filenames.production.javascript.index,
-        server: this.paths.relative.javascript + "/" + this.filenames.production.javascript.server,
+        spa: {
+          index: this.paths.relative.javascript.production.spa.index + "/" + this.filenames.production.javascript.index,
+        },
+        ssr: {
+          index: this.paths.relative.javascript.production.ssr.index + "/" + this.filenames.production.javascript.index,
+          server:
+            this.paths.relative.javascript.production.ssr.server + "/" + this.filenames.production.javascript.server,
+        },
       },
       html: {
-        index: "index.html",
+        index: this.paths.relative.html + "/" + this.filenames.production.html.index,
       },
       styles: {
         index: this.paths.relative.styles + "/" + this.filenames.production.styles.index,

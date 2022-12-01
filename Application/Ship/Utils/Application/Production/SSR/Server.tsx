@@ -16,9 +16,6 @@ const port = 80;
 
 const server = express();
 
-// eslint-disable-next-line no-console
-console.log(resolve(__dirname, ".."));
-
 server.use((request, response, next) => {
   response.append("Access-Control-Allow-Origin", ["*"]);
   response.append("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
@@ -27,6 +24,9 @@ server.use((request, response, next) => {
   response.append("Cache-Control", "public, max-age=31536000");
   next();
 });
+
+// eslint-disable-next-line no-console
+console.log(resolve(__dirname, ".."));
 
 server.get(
   /\.json|\.js|\.css|\.ico|\.svg|\.png|\.jpg|\.jpeg|\.txt$/,

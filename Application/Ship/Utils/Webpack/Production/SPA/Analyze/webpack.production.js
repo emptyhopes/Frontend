@@ -19,7 +19,7 @@ const Production = {
 
   output: {
     ...Utils.defaults.output,
-    filename: Paths.combined.production.javascript.index,
+    filename: Paths.combined.production.javascript.spa.index,
   },
 
   optimization: {

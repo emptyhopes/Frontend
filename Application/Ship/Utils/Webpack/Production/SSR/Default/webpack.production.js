@@ -18,7 +18,7 @@ const ProductionClient = {
 
   output: {
     ...Utils.defaults.output,
-    filename: Paths.combined.production.javascript.index,
+    filename: Paths.combined.production.javascript.ssr.index,
     clean: false,
   },
 
@@ -115,7 +115,7 @@ const ProductionServer = {
 
   output: {
     ...Utils.defaults.output,
-    filename: Paths.combined.production.javascript.server,
+    filename: Paths.combined.production.javascript.ssr.server,
   },
 
   externals: [WebpackNodeExternals()],
