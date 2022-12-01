@@ -24,18 +24,12 @@ server.use((request, response, next) => {
   next();
 });
 
-server.get(
-  /\.json|\.js|\.css|\.ico|\.svg|\.png|\.jpg|\.jpeg|\.txt$/,
-  express.static(resolve(__dirname, "..")),
-  (request, response) => {
-    response.append("Content-Encoding", "br");
-  },
-);
+server.get(/\.json|\.js|\.css|\.ico|\.svg|\.png|\.jpg|\.jpeg|\.txt$/, express.static(resolve(__dirname, "..")));
 
 server.use("*", (request, response) => {
   const sheet = new ServerStyleSheet();
 
-  let HTML = readFileSync("../index.html", {
+  let HTML = readFileSync(resolve(__dirname, "..", "index.html"), {
     encoding: "utf-8",
   });
 
