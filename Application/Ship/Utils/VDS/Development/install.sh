@@ -20,7 +20,7 @@ sudo mkdir --parents "/etc/nginx"
 sudo mkdir --parents "/etc/nginx/sites-available"
 sudo mkdir --parents "/etc/nginx/sites-enabled"
 
-sudo cp --recursive $temporary/frontend/Build/* "/var/www/build"
+sudo cp --recursive "$temporary/frontend/Build/static" "/var/www/build"
 sudo cp "$temporary/frontend/Application/Ship/Utils/Nginx/nginx.conf" "/etc/nginx/nginx.conf"
 sudo cp "$temporary/frontend/Application/Ship/Utils/Nginx/sites-available/localhost.conf" "/etc/nginx/sites-available/localhost.conf"
 
