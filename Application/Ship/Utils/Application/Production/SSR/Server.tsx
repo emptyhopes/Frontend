@@ -1,12 +1,12 @@
 import { resolve } from "path";
 import { readFileSync } from "fs";
 
-import * as React from "react";
 import * as ReactDOM from "react-dom/server";
 import * as express from "express";
 
 import { Provider } from "react-redux";
 import { StaticRouter } from "react-router-dom/server";
+import { ServerStyleSheet } from "styled-components";
 
 import { store } from "@/Application/Ship/Store/index";
 import { Application } from "@/Application/Containers/Application/Application";
@@ -14,33 +14,62 @@ import { Paths } from "@/Application/Ship/Utils/Paths/Paths";
 
 const port = 80;
 
-const HTML = readFileSync(Paths.GetAbsolutePath(Paths.paths.absolute.output, Paths.combined.production.html.index), {
-  encoding: "utf-8",
-});
-
 const server = express();
 
-server.get(/\.json|\.js|\.css|\.svg|\.png|\.jpg|\.jpeg|\.txt$/, express.static(resolve(__dirname, "..")));
+// eslint-disable-next-line no-console
+console.log(resolve(__dirname, ".."));
+
+server.use((request, response, next) => {
+  response.append("Access-Control-Allow-Origin", ["*"]);
+  response.append("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  response.append("Access-Control-Allow-Headers", "Content-Type");
+  response.append("Accept-Encoding", "gzip, compress, br");
+  response.append("Cache-Control", "public, max-age=31536000");
+  next();
+});
+
+server.get(
+  /\.json|\.js|\.css|\.ico|\.svg|\.png|\.jpg|\.jpeg|\.txt$/,
+  express.static(resolve(__dirname, "..")),
+  (request, response) => {
+    response.append("Content-Encoding", "br");
+  },
+);
 
 server.use("*", (request, response) => {
-  const Structures = (
-    <React.StrictMode>
+  const sheet = new ServerStyleSheet();
+
+  let HTML = readFileSync(Paths.GetAbsolutePath(Paths.paths.absolute.output, Paths.combined.production.html.index), {
+    encoding: "utf-8",
+  });
+
+  const Structures = ReactDOM.renderToString(
+    sheet.collectStyles(
       <Provider store={store}>
-        <StaticRouter location={request.url}>
+        <StaticRouter location={request.originalUrl}>
           <Application />
         </StaticRouter>
-      </Provider>
-    </React.StrictMode>
+      </Provider>,
+    ),
   );
 
-  const content = HTML.replace(
+  const styles = sheet.getStyleTags();
+
+  HTML = HTML.replace(
+    // eslint-disable-next-line quotes
+    "<style></style>",
+    // eslint-disable-next-line quotes
+    styles,
+  );
+
+  HTML = HTML.replace(
     // eslint-disable-next-line quotes
     '<div id="root"></div>',
     // eslint-disable-next-line quotes
-    '<div id="root">' + ReactDOM.renderToString(Structures) + "</div>",
+    '<div id="root">' + Structures + "</div>",
   );
 
-  response.status(200).send(content);
+  response.send(HTML);
 });
 
 server.listen(port, () => {

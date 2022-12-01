@@ -7,7 +7,7 @@ class Paths extends null {
     absolute: {
       context: resolve(this.root),
       application: resolve(this.root, "Application"),
-      output: resolve(this.root, "Build"),
+      output: resolve(this.root, "Build", "static"),
       template: {
         index: resolve(this.root, "Application", "Ship", "Public", "index.html"),
       },
@@ -39,7 +39,6 @@ class Paths extends null {
 
     relative: {
       javascript: "javascript",
-      html: "",
       styles: "styles",
       images: "assets" + "/" + "images",
       fonts: "assets" + "/" + "fonts",
@@ -50,9 +49,6 @@ class Paths extends null {
     development: {
       javascript: {
         index: "[name].js",
-      },
-      html: {
-        index: "[name].html",
       },
       styles: {
         index: "[name].css",
@@ -69,9 +65,6 @@ class Paths extends null {
       javascript: {
         index: "[name].[contenthash].js",
         server: "[name].[contenthash].js",
-      },
-      html: {
-        index: "[name].html",
       },
       styles: {
         index: "[name].[contenthash].css",

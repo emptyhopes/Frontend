@@ -12,8 +12,10 @@ cd "$temporary/frontend"; npm install; npm run production:ssr
 
 sudo rm --recursive --force "/var/www/build"
 sudo mkdir --parents "/var/www/build"
+# sudo mkdir --parents "/var/www/build/node_modules"
 
 sudo cp --recursive $temporary/frontend/Build/* "/var/www/build"
+# sudo cp --recursive $temporary/frontend/node_modules/* "/var/www/build/node_modules"
 
 sudo rm --recursive --force "$temporary"
 

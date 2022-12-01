@@ -2,6 +2,7 @@ const HTMLWebpackPlugin = require("html-webpack-plugin");
 const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const CSSMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin");
+
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 const { Utils } = require("../../webpack.utils.js");

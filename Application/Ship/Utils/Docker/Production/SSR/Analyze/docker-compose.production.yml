@@ -1,0 +1,7 @@
+services:
+  web:
+    build:
+      context: ../../../../../../../
+      dockerfile: Application/Ship/Utils/Docker/Production/SSR/Analyze/Dockerfile.Production
+    ports:
+      - "80:80"

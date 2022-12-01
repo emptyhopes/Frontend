@@ -8,7 +8,7 @@ COPY package.json package.json
 RUN npm install
 
 COPY . .
-RUN npm run production:spa
+RUN npm run production:spa:analyze
 
 FROM nginx:latest
 

@@ -1,0 +1,28 @@
+FROM node:latest AS Production
+
+WORKDIR /Application
+
+RUN npm install --global npm@latest
+
+COPY package.json package.json
+RUN npm install
+
+COPY . .
+RUN npm run production:spa:default
+
+FROM nginx:latest
+
+RUN rm --recursive --force /var/www/build
+
+RUN mkdir --parents /var/www/build
+RUN mkdir --parents /etc/nginx
+RUN mkdir --parents /etc/nginx/sites-available
+RUN mkdir --parents /etc/nginx/sites-enabled
+
+COPY --from=Production /Application/Build /var/www/build
+COPY /Application/Ship/Utils/Nginx/nginx.conf /etc/nginx/nginx.conf
+COPY /Application/Ship/Utils/Nginx/sites-available/localhost.conf /etc/nginx/sites-available/localhost.conf
+
+RUN ln --symbolic /etc/nginx/sites-available/localhost.conf /etc/nginx/sites-enabled/localhost.conf
+
+RUN nginx -t

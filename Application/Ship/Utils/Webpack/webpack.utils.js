@@ -1,9 +1,34 @@
+const { resolve } = require("path");
+
 const { ProvidePlugin } = require("webpack");
+
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 
 const { Paths } = require("../Paths/Paths.js");
 
 class Utils extends null {
+  static copy = {
+    patterns: [
+      {
+        from: resolve(Paths.paths.absolute.assets, "Images", "Icons"),
+        to: resolve(Paths.paths.absolute.output, "assets", "images", "icons"),
+      },
+      {
+        from: resolve(Paths.paths.absolute.assets, "SEO", "robots.txt"),
+        to: Paths.paths.absolute.output,
+      },
+      {
+        from: resolve(Paths.paths.absolute.assets, "PWA", "Modules", "ServiceWorkers.js"),
+        to: Paths.paths.absolute.output,
+      },
+      {
+        from: resolve(Paths.paths.absolute.assets, "PWA", "Manifest", "manifest.json"),
+        to: Paths.paths.absolute.output,
+      },
+    ],
+  };
+
   static alias = {
     "@": Paths.GetAbsolutePath(Paths.root),
   };
@@ -52,7 +77,13 @@ class Utils extends null {
     },
   ];
 
-  static plugins = [new ProvidePlugin({ React: "react" })];
+  static plugins = [
+    new ProvidePlugin({ React: "react" }),
+
+    new CopyWebpackPlugin({
+      patterns: this.copy.patterns,
+    }),
+  ];
 
   static defaults = {
     context: Paths.paths.absolute.context,

@@ -1,6 +1,5 @@
 import "@/Application/Containers/Application/Styles/Application.scss";
 import "@/Application/Containers/Application/Styles/Fonts.scss";
-import "@/Application/Containers/Application/Styles/Variables.scss";
 
 import { AuthenticationProvider } from "@/Application/Containers/Providers/AuthenticationProvider/AuthenticationProvider";
 import { ThemeProvider } from "@/Application/Containers/Providers/ThemeProvider/ThemeProvider";

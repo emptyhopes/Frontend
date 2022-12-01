@@ -1,0 +1,11 @@
+FROM node:latest AS Production
+
+WORKDIR /Application
+
+RUN npm install --global npm@latest
+
+COPY package.json package.json
+RUN npm install
+
+COPY . .
+RUN npm run production:ssr:analyze

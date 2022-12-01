@@ -3,10 +3,9 @@ const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const CSSMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin");
 const WebpackNodeExternals = require("webpack-node-externals");
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
-const { Utils } = require("../../webpack.utils.js");
-const { Paths } = require("../../../Paths/Paths.js");
+const { Utils } = require("../../../webpack.utils.js");
+const { Paths } = require("../../../../Paths/Paths.js");
 
 const ProductionClient = {
   ...Utils.defaults,
@@ -54,11 +53,6 @@ const ProductionClient = {
             },
           ],
         },
-      }),
-
-      new BundleAnalyzerPlugin({
-        analyzerMode: "disabled",
-        generateStatsFile: true,
       }),
     ],
   },
@@ -132,11 +126,11 @@ const ProductionServer = {
 
       {
         test: /\.(svg|png|jpg|jpeg|webp)$/,
-        use: "null-loader",
+        ...Utils.AssetsLoader(Paths.combined.development.images.default),
       },
       {
         test: /\.(ttf|woff|woff2|eot)$/,
-        use: "null-loader",
+        ...Utils.AssetsLoader(Paths.combined.development.fonts.default),
       },
       {
         test: /\.css$/,
