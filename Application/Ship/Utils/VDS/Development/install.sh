@@ -1,8 +1,6 @@
 #! /bin/bash
 
-sudo apt-get update --yes && sudo apt full-upgrade --yes
-
-sudo apt-get install nginx nodejs npm --yes
+sudo apt-get install git nginx nodejs npm --yes
 
 temporary=$(mktemp --directory)
 
@@ -14,9 +12,7 @@ sudo rm --recursive --force "/var/www/build"
 sudo rm --recursive --force "/etc/nginx/sites-available"
 sudo rm --recursive --force "/etc/nginx/sites-enabled"
 
-sudo mkdir --parents "/var/www/build"
-
-sudo mkdir --parents "/etc/nginx"
+sudo mkdir --parents "/var/www/build/static"
 sudo mkdir --parents "/etc/nginx/sites-available"
 sudo mkdir --parents "/etc/nginx/sites-enabled"
 
@@ -29,4 +25,4 @@ sudo ln --symbolic "/etc/nginx/sites-available/localhost.conf" "/etc/nginx/sites
 sudo rm --recursive --force "$temporary"
 
 sudo nginx -t
-sudo systemctl restart nginx
+sudo systemctl restart nginx.service
