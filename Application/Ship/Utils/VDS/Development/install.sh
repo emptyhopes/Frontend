@@ -8,7 +8,7 @@ temporary=$(mktemp --directory)
 
 git clone "https://github.com/emptyhopes/frontend.git" "$temporary/frontend"
 
-cd "$temporary/frontend"; npm install; npm run production:spa
+cd "$temporary/frontend"; npm install; npm run development
 
 sudo rm --recursive --force "/var/www/build"
 sudo rm --recursive --force "/etc/nginx/sites-available"

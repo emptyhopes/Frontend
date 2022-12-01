@@ -5,8 +5,8 @@ const CSSMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin");
 
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
-const { Utils } = require("../../webpack.utils.js");
-const { Paths } = require("../../../Paths/Paths.js");
+const { Utils } = require("../../../webpack.utils.js");
+const { Paths } = require("../../../../Paths/Paths.js");
 
 const Production = {
   ...Utils.defaults,

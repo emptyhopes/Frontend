@@ -25,9 +25,6 @@ server.use((request, response, next) => {
   next();
 });
 
-// eslint-disable-next-line no-console
-console.log(resolve(__dirname, ".."));
-
 server.get(
   /\.json|\.js|\.css|\.ico|\.svg|\.png|\.jpg|\.jpeg|\.txt$/,
   express.static(resolve(__dirname, "..")),

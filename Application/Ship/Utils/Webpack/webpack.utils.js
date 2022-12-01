@@ -12,19 +12,19 @@ class Utils extends null {
     patterns: [
       {
         from: resolve(Paths.paths.absolute.assets, "Images", "Icons"),
-        to: resolve(Paths.paths.absolute.output, "static", "assets", "images", "icons"),
+        to: resolve(Paths.paths.absolute.output, "assets", "images", "icons"),
       },
       {
         from: resolve(Paths.paths.absolute.assets, "SEO", "robots.txt"),
-        to: resolve(Paths.paths.absolute.output, "static"),
+        to: resolve(Paths.paths.absolute.output),
       },
       {
         from: resolve(Paths.paths.absolute.assets, "PWA", "Modules", "ServiceWorkers.js"),
-        to: resolve(Paths.paths.absolute.output, "static"),
+        to: resolve(Paths.paths.absolute.output),
       },
       {
         from: resolve(Paths.paths.absolute.assets, "PWA", "Manifest", "manifest.json"),
-        to: resolve(Paths.paths.absolute.output, "static"),
+        to: resolve(Paths.paths.absolute.output),
       },
     ],
   };

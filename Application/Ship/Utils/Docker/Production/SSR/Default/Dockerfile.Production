@@ -1,6 +1,6 @@
 FROM node:latest AS Production
 
-WORKDIR /Application
+WORKDIR /usr/src
 
 RUN npm install --global npm@latest
 
@@ -9,3 +9,14 @@ RUN npm install
 
 COPY . .
 RUN npm run production:ssr:default
+
+RUN rm --recursive --force /var/www/build
+
+RUN mkdir --parents /var/www/build
+
+RUN cp --recursive /usr/src/Build /var/www/build
+RUN cp --recursive /usr/src/node_modules /var/www/build
+
+RUN ls /var/www
+RUN ls /var/www/build
+RUN ls /var/www/static
