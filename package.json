@@ -86,6 +86,7 @@
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
+    "compression": "^1.7.4",
     "identity-obj-proxy": "^3.0.0"
   }
 }

@@ -3,6 +3,7 @@ import { readFileSync } from "fs";
 
 import * as ReactDOM from "react-dom/server";
 import * as express from "express";
+import * as compression from "compression";
 
 import { Provider } from "react-redux";
 import { StaticRouter } from "react-router-dom/server";
@@ -15,12 +16,15 @@ const port = 80;
 
 const server = express();
 
+server.use(compression());
+
 server.use((request, response, next) => {
-  response.append("Access-Control-Allow-Origin", ["*"]);
-  response.append("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-  response.append("Access-Control-Allow-Headers", "Content-Type");
-  response.append("Accept-Encoding", "gzip, compress, br");
+  response.append(
+    "Content-Security-Policy",
+    "default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self';",
+  );
   response.append("Cache-Control", "public, max-age=31536000");
+  response.append("X-Frame-Options", "SAMEORIGIN");
   next();
 });
 
