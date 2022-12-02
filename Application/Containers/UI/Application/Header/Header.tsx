@@ -37,7 +37,7 @@ const Header: React.FunctionComponent = (): React.ReactElement => {
           <StyledContent>
             <StyledLogo>
               <Link to={"/"}>
-                <img src={Logo} />
+                <img src={Logo} alt="" />
               </Link>
             </StyledLogo>
             <Navbar />

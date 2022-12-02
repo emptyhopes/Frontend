@@ -1,5 +1,6 @@
 interface PropsInterface {
-  placeholder?: string;
+  type: string;
+  placeholder: string;
   style?: React.CSSProperties;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }

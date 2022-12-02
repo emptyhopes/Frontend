@@ -74,11 +74,11 @@ const Watch = {
       },
       {
         test: /\.css$/,
-        use: Utils.StylesLoader([{ loader: "postcss-loader" }]),
+        use: Utils.StylesLoader([]),
       },
       {
         test: /\.s[ac]ss$/,
-        use: Utils.StylesLoader([{ loader: "postcss-loader" }, { loader: "sass-loader" }]),
+        use: Utils.StylesLoader([{ loader: "sass-loader" }]),
       },
     ],
   },

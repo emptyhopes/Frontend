@@ -63,11 +63,13 @@ const Authentication: React.FunctionComponent = (): React.ReactElement => {
           <Input
             style={{ margin: "0 0 20px 0" }}
             onChange={(event) => SetEmail(event.target.value)}
+            type="text"
             placeholder="Введите электронный адрес"
           />
           <Input
             style={{ margin: "0 0 20px 0" }}
             onChange={(event) => SetPassword(event.target.value)}
+            type="password"
             placeholder="Введите пароль"
           />
           <Button disabled={isActivated === true ? isActivated : isLoading} onClick={() => AuthenticateFunction()}>

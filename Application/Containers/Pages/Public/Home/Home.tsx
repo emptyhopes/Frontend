@@ -47,7 +47,7 @@ const Home: React.FunctionComponent = (): React.ReactElement => {
           <StyledTitle>Home</StyledTitle>
           <StyledContent>
             <Button>Кнопка</Button>
-            <Input placeholder={"Введите имя"} />
+            <Input type="text" placeholder="Введите имя" />
             <Switch />
           </StyledContent>
           <StyledContent>

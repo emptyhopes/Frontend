@@ -19,7 +19,7 @@ class Utils extends null {
         to: resolve(Paths.paths.absolute.output),
       },
       {
-        from: resolve(Paths.paths.absolute.assets, "PWA", "Modules", "ServiceWorkers.js"),
+        from: resolve(Paths.paths.absolute.assets, "PWA", "Modules", "ServiceWorker.js"),
         to: resolve(Paths.paths.absolute.output),
       },
       {
