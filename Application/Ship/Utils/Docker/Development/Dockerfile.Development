@@ -16,7 +16,6 @@ RUN mkdir --parents /var/www/${hostname}
 
 RUN cp --recursive /usr/src/Build/static /var/www/${hostname}
 
-RUN ls /var/www/localhost/static
 
 FROM nginx:latest
 
