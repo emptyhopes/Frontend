@@ -20,12 +20,9 @@ const StyledContent = styled.div`
 `;
 
 const StyledLogo = styled.div`
-  width: 200px;
-  height: 100px;
-
   & img {
     width: 200px;
-    height: 100px;
+    height: 105px;
   }
 `;
 
@@ -36,7 +33,7 @@ const Header: React.FunctionComponent = (): React.ReactElement => {
         <Container>
           <StyledContent>
             <StyledLogo>
-              <Link to={"/"}>
+              <Link aria-label="redirect to home page" to={"/"}>
                 <img src={Logo} alt="" />
               </Link>
             </StyledLogo>

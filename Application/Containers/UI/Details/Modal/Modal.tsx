@@ -53,7 +53,7 @@ const Modal: React.FunctionComponent<PropsInterface> = (props: PropsInterface): 
     <>
       <StyledModal className={props.isActivated && "active"} onClick={() => props.SetActivated(false)}>
         <StyledContent onClick={(event) => event.stopPropagation()}>
-          <StyledButton onClick={() => props.SetActivated(false)}>
+          <StyledButton aria-label="modal-close" onClick={() => props.SetActivated(false)}>
             <IoCloseCircleOutline />
           </StyledButton>
         </StyledContent>

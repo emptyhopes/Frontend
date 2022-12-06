@@ -16,7 +16,11 @@ const UnRegister = () => {
   window.addEventListener("load", async () => {
     if (navigator) {
       try {
-        await navigator.serviceWorker.register("ServiceWorker.js");
+        navigator.serviceWorker.getRegistration().then((registrations) => {
+          for (const registration of [registrations]) {
+            registration.unregister();
+          }
+        });
       } catch (error) {
         console.log(error);
       }

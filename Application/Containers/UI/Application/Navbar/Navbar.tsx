@@ -44,7 +44,7 @@ const StyledLink = styled(Link)`
 `;
 
 const StyledTheme = styled(Theme)`
-  margin: 0 0 0 60px;
+  margin: 0 0 0 30px;
 `;
 
 const Navbar: React.FunctionComponent = (): React.ReactElement => {
@@ -67,10 +67,9 @@ const Navbar: React.FunctionComponent = (): React.ReactElement => {
             {GetElementLink("/users", <StyledLink to={"/users"}>Users</StyledLink>)}
             {GetElementLink("/posts", <StyledLink to={"/posts"}>Posts</StyledLink>)}
             {GetElementLink("/todos", <StyledLink to={"/todos"}>Todos</StyledLink>)}
-
-            <StyledTheme />
           </StyledUl>
         </nav>
+        <StyledTheme />
       </StyledNavbar>
     </>
   );

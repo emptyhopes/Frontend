@@ -1,6 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 
 import { Server } from "@/Config/Server";
+import {
+  RegistrationInterface,
+  AuthenticationInterface,
+} from "@/Application/Containers/Middlewares/Authentication/Types/AuthenticationMiddlewareInterface";
 
 const AuthenticationMiddleware = createApi({
   reducerPath: "AuthenticationMiddleware",
@@ -11,7 +15,7 @@ const AuthenticationMiddleware = createApi({
 
   endpoints: (build) => ({
     Registration: build.mutation({
-      query: (body) => {
+      query: (body: RegistrationInterface) => {
         return {
           url: "registration",
           method: "POST",
@@ -21,7 +25,7 @@ const AuthenticationMiddleware = createApi({
     }),
 
     Authenticate: build.mutation({
-      query: (body) => {
+      query: (body: AuthenticationInterface) => {
         return {
           url: "login",
           method: "POST",
