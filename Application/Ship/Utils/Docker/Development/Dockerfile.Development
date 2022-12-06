@@ -11,18 +11,19 @@ COPY . /usr/src
 RUN cd /usr/src; npm run development
 
 RUN rm --recursive --force /var/www/${hostname}
+
 RUN mkdir --parents /var/www/${hostname}
 
 RUN cp --recursive /usr/src/Build/static /var/www/${hostname}
-RUN cp --recursive /usr/src/node_modules /var/www/${hostname}
 
+RUN ls /var/www/localhost/static
 
 FROM nginx:latest
 
 ENV hostname="localhost"
 
-RUN rm --recursive --force /etc/nginx/sites-available
-RUN rm --recursive --force /etc/nginx/sites-enabled
+RUN rm --recursive --force /etc/nginx/sites-available/${hostname}
+RUN rm --recursive --force /etc/nginx/sites-enabled/${hostname}
 
 RUN mkdir --parents /etc/nginx
 RUN mkdir --parents /etc/nginx/sites-available
@@ -34,5 +35,3 @@ COPY Application/Ship/Utils/Nginx/Development/sites-available/localhost.conf /et
 RUN ln --symbolic /etc/nginx/sites-available/${hostname}.conf /etc/nginx/sites-enabled/${hostname}.conf
 
 RUN nginx -t
-
-RUN service nginx start
