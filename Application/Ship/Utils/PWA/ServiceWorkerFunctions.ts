@@ -12,7 +12,7 @@ const Register = () => {
   });
 };
 
-const UnRegister = () => {
+const Unregister = () => {
   window.addEventListener("load", async () => {
     if (navigator) {
       try {
@@ -28,4 +28,4 @@ const UnRegister = () => {
   });
 };
 
-export { Register, UnRegister };
+export { Register, Unregister };

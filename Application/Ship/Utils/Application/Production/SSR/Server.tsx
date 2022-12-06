@@ -21,7 +21,7 @@ server.use(compression());
 server.use((request, response, next) => {
   response.append(
     "Content-Security-Policy",
-    "default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self';",
+    "default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self'; manifest-src 'self'; connect-src 'self' https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com;",
   );
   response.append("Cache-Control", "public, max-age=31536000");
   response.append("X-Frame-Options", "SAMEORIGIN");
