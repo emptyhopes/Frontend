@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     height: 100%;
   }
-c
+
   body {
     padding: 0;
     margin: 0;
