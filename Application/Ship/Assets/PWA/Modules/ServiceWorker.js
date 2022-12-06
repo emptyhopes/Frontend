@@ -29,5 +29,6 @@ const UpdateCache = async (event) => {
 const DeleteCache = async () => {
   const CacheNames = await caches.keys();
 
+  // Delete old version resource
   await Promise.all(CacheNames.filter((name) => name !== CacheName).map((name) => caches.delete(name)));
 };
