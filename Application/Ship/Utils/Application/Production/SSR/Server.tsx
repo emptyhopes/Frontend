@@ -3,7 +3,6 @@ import { readFileSync } from "fs";
 
 import * as ReactDOM from "react-dom/server";
 import * as express from "express";
-import * as compression from "compression";
 
 import { Provider } from "react-redux";
 import { StaticRouter } from "react-router-dom/server";
@@ -16,18 +15,6 @@ const hostname = "localhost";
 const port = 3000;
 
 const server = express();
-
-server.use(compression());
-
-server.use((request, response, next) => {
-  response.append(
-    "Content-Security-Policy",
-    "default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self'; manifest-src 'self'; connect-src 'self' https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com;",
-  );
-  response.append("Cache-Control", "public, max-age=31536000");
-  response.append("X-Frame-Options", "SAMEORIGIN");
-  next();
-});
 
 server.get(/\.json|\.js|\.css|\.ico|\.svg|\.png|\.jpg|\.jpeg|\.txt$/, express.static(resolve(__dirname, "..")));
 

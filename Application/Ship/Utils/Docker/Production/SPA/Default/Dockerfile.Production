@@ -1,29 +1,35 @@
-FROM node:latest AS Production
+FROM node:latest
 
-WORKDIR /usr/src
+ENV hostname="localhost"
 
 RUN npm install --global npm@latest
 
-COPY package.json package.json
-RUN npm install
+COPY package.json /usr/src/package.json
+RUN cd /usr/src; npm install
 
-COPY . .
-RUN npm run production:spa:default
+COPY . /usr/src
+RUN cd /usr/src; npm run production:spa:default
+
+RUN rm --recursive --force /var/www/${hostname}
+RUN mkdir --parents /var/www/${hostname}
+
+RUN cp --recursive /usr/src/Build/static /var/www/${hostname}
+RUN cp --recursive /usr/src/node_modules /var/www/${hostname}
+
 
 FROM nginx:latest
 
 ENV hostname="localhost"
 
-RUN rm --recursive --force /var/www/${hostname}
+RUN rm --recursive --force /etc/nginx/sites-available
+RUN rm --recursive --force /etc/nginx/sites-enabled
 
-RUN mkdir --parents /var/www/${hostname}
 RUN mkdir --parents /etc/nginx
 RUN mkdir --parents /etc/nginx/sites-available
 RUN mkdir --parents /etc/nginx/sites-enabled
 
-COPY --from=Production /usr/src/Build /var/www/${hostname}
-COPY --from=Production /usr/src/Application/Ship/Utils/Nginx/Production/SPA/nginx.conf /etc/nginx/nginx.conf
-COPY --from=Production /usr/src/Application/Ship/Utils/Nginx/Production/SPA/sites-available/localhost.conf /etc/nginx/sites-available/${hostname}.conf
+COPY Application/Ship/Utils/Nginx/Production/SPA/nginx.conf /etc/nginx/nginx.conf
+COPY Application/Ship/Utils/Nginx/Production/SPA/sites-available/localhost.conf /etc/nginx/sites-available/${hostname}.conf
 
 RUN ln --symbolic /etc/nginx/sites-available/${hostname}.conf /etc/nginx/sites-enabled/${hostname}.conf
 
