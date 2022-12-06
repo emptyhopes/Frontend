@@ -12,17 +12,19 @@ RUN npm run production:spa:analyze
 
 FROM nginx:latest
 
-RUN rm --recursive --force /var/www/build
+RUN rm --recursive --force /var/www/localhost
 
-RUN mkdir --parents /var/www/build
+RUN mkdir --parents /var/www/localhost
 RUN mkdir --parents /etc/nginx
 RUN mkdir --parents /etc/nginx/sites-available
 RUN mkdir --parents /etc/nginx/sites-enabled
 
-COPY --from=Production /usr/src/Build /var/www/build
-COPY --from=Production /usr/src/Application/Ship/Utils/Nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=Production /usr/src/Application/Ship/Utils/Nginx/sites-available/localhost.conf /etc/nginx/sites-available/localhost.conf
+COPY --from=Production /usr/src/Build /var/www/localhost
+COPY --from=Production /usr/src/Application/Ship/Utils/Nginx/Production/SPA/nginx.conf /etc/nginx/nginx.conf
+COPY --from=Production /usr/src/Application/Ship/Utils/Nginx/Production/SPA/sites-available/localhost.conf /etc/nginx/sites-available/localhost.conf
 
 RUN ln --symbolic /etc/nginx/sites-available/localhost.conf /etc/nginx/sites-enabled/localhost.conf
 
 RUN nginx -t
+
+RUN service nginx start

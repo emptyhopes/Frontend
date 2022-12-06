@@ -37,19 +37,23 @@ jobs:
         run: npm run development:docker
       - name: Stop development build in the docker container
         run: npm run development:docker:stop
-      - name: Remove development build in the docker container
-        run: npm run development:docker:remove
 
       - name: Check production single page application build in the docker container
         run: npm run production:spa:default:docker
       - name: Stop production single page application build in the docker container
         run: npm run production:spa:default:docker:stop
-      - name: Remove production single page application build in the docker container
-        run: npm run production:spa:default:docker:remove
 
-      - name: Check production server side rendering build in the docker container
-        run: npm run production:ssr:default:docker
-      - name: Stop production server side rendering build in the docker container
-        run: npm run production:ssr:default:docker:stop
-      - name: Remove production server side rendering build in the docker container
-        run: npm run production:ssr:default:docker:remove
+      - name: Check production single page application build analyze in the docker container
+        run: npm run production:spa:analyze:docker
+      - name: Stop production single page application build analyze in the docker container
+        run: npm run production:spa:analyze:docker:stop
+
+      # - name: Check production server side rendering build in the docker container
+      #   run: npm run production:ssr:default:docker
+      # - name: Stop production server side rendering build in the docker container
+      #   run: npm run production:ssr:default:docker:stop
+
+      # - name: Check production server side rendering build analyze in the docker container
+      #   run: npm run production:ssr:analyze:docker
+      # - name: Stop production server side rendering build analyze in the docker container
+      #   run: npm run production:ssr:analyze:docker:stop

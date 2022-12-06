@@ -12,7 +12,8 @@ import { ServerStyleSheet } from "styled-components";
 import { store } from "@/Application/Ship/Store/index";
 import { Application } from "@/Application/Containers/Application/Application";
 
-const port = 80;
+const hostname = "localhost";
+const port = 3000;
 
 const server = express();
 
@@ -49,24 +50,15 @@ server.use("*", (request, response) => {
 
   const styles = sheet.getStyleTags();
 
-  HTML = HTML.replace(
-    // eslint-disable-next-line quotes
-    "<style></style>",
-    // eslint-disable-next-line quotes
-    styles,
-  );
+  HTML = HTML.replace("<style></style>", styles);
 
-  HTML = HTML.replace(
-    // eslint-disable-next-line quotes
-    '<div id="root"></div>',
-    // eslint-disable-next-line quotes
-    '<div id="root">' + Structures + "</div>",
-  );
+  // eslint-disable-next-line quotes
+  HTML = HTML.replace('<div id="root"></div>', '<div id="root">' + Structures + "</div>");
 
   response.send(HTML);
 });
 
-server.listen(port, () => {
+server.listen(port, hostname, () => {
   // eslint-disable-next-line no-console
   console.log("http://localhost" + ":" + port);
 });
