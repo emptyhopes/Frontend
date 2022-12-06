@@ -1,3 +1,5 @@
 #! /bin/bash
 
-node $(find "/var/www/build/static/server" -name "server.*.js")
+hostname="localhost"
+
+node $(find "/var/www/$hostname/static/server" -name "server.*.js")

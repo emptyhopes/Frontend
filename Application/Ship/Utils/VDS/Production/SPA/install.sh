@@ -12,8 +12,8 @@ git clone "https://github.com/emptyhopes/frontend.git" "$temporary/frontend"
 cd "$temporary/frontend"; npm install; npm run production:spa:default
 
 sudo rm --recursive --force "/var/www/$hostname"
-sudo rm --recursive --force "/etc/nginx/sites-available/$hostname"
-sudo rm --recursive --force "/etc/nginx/sites-enabled/$hostname"
+sudo rm "/etc/nginx/sites-available/$hostname.conf"
+sudo rm "/etc/nginx/sites-enabled/$hostname.conf"
 
 sudo mkdir --parents "/var/www/$hostname/static"
 sudo mkdir --parents "/etc/nginx/sites-available"
@@ -29,4 +29,5 @@ sudo rm --recursive --force "$temporary"
 
 sudo nginx -t
 
+sudo systemctl start nginx.service
 sudo systemctl restart nginx.service

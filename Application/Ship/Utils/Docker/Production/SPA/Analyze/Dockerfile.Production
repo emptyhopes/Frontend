@@ -21,8 +21,8 @@ FROM nginx:latest
 
 ENV hostname="localhost"
 
-RUN rm --recursive --force /etc/nginx/sites-available/${hostname}
-RUN rm --recursive --force /etc/nginx/sites-enabled/${hostname}
+RUN rm --force /etc/nginx/sites-available/${hostname}.conf
+RUN rm --force /etc/nginx/sites-enabled/${hostname}.conf
 
 RUN mkdir --parents /etc/nginx
 RUN mkdir --parents /etc/nginx/sites-available
@@ -34,3 +34,6 @@ COPY Application/Ship/Utils/Nginx/Production/SPA/sites-available/localhost.conf 
 RUN ln --symbolic /etc/nginx/sites-available/${hostname}.conf /etc/nginx/sites-enabled/${hostname}.conf
 
 RUN nginx -t
+
+RUN service nginx start
+# RUN service nginx restart
