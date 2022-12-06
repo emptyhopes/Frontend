@@ -19,6 +19,6 @@ sudo cp --recursive "$temporary/frontend/Build/static" "/var/www/build"
 sudo cp --recursive "$temporary/frontend/node_modules" "/var/www/build"
 sudo cp --recursive "$temporary/frontend/Application/Ship/Utils/VDS/Production/SSR/start.sh" "/var/www/build"
 
-crontab -e
-
 sudo rm --recursive --force "$temporary"
+
+crontab -e
