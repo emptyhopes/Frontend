@@ -26,4 +26,5 @@ sudo ln --symbolic "/etc/nginx/sites-available/$hostname.conf" "/etc/nginx/sites
 sudo rm --recursive --force "$temporary"
 
 sudo nginx -t
+
 sudo systemctl restart nginx.service
