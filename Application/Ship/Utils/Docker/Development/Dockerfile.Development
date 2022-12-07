@@ -1,39 +1,31 @@
-FROM node:latest
+FROM node:latest as Development
 
-ENV hostname="localhost"
+WORKDIR /usr/src
 
 RUN npm install --global npm@latest
 
-COPY package.json /usr/src/package.json
-RUN cd /usr/src; npm install
+COPY package.json package.json
+RUN npm install
 
-COPY . /usr/src
-RUN cd /usr/src; npm run development
-
-RUN rm --recursive --force /var/www/${hostname}
-
-RUN mkdir --parents /var/www/${hostname}
-
-RUN cp --recursive /usr/src/Build/static /var/www/${hostname}
-
+COPY . .
+RUN npm run development
 
 FROM nginx:latest
 
 ENV hostname="localhost"
 
+RUN rm --recursive --force /var/www/${hostname}
 RUN rm --force /etc/nginx/sites-available/${hostname}.conf
 RUN rm --force /etc/nginx/sites-enabled/${hostname}.conf
 
-RUN mkdir --parents /etc/nginx
+RUN mkdir --parents /var/www/${hostname}
 RUN mkdir --parents /etc/nginx/sites-available
 RUN mkdir --parents /etc/nginx/sites-enabled
 
-COPY Application/Ship/Utils/Nginx/Development/nginx.conf /etc/nginx/nginx.conf
-COPY Application/Ship/Utils/Nginx/Development/sites-available/localhost.conf /etc/nginx/sites-available/${hostname}.conf
+COPY --from=Development /usr/src/Build /var/www/${hostname}
+COPY --from=Development /usr/src/Application/Ship/Utils/Nginx/Development/nginx.conf /etc/nginx/nginx.conf
+COPY --from=Development /usr/src/Application/Ship/Utils/Nginx/Development/sites-available/localhost.conf /etc/nginx/sites-available/${hostname}.conf
 
 RUN ln --symbolic /etc/nginx/sites-available/${hostname}.conf /etc/nginx/sites-enabled/${hostname}.conf
 
 RUN nginx -t
-
-RUN service nginx start
-# RUN service nginx restart
