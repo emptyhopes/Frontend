@@ -6,5 +6,4 @@ bash "$temporary/install.sh"
 
 source ~/.nvm/nvm.sh
 
-nvm install 19.2.0
-nvm use 19.2.0
+nvm install node
