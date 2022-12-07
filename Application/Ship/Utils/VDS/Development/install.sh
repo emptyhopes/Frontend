@@ -16,8 +16,8 @@ sudo mkdir --parents "/etc/nginx/sites-available"
 sudo mkdir --parents "/etc/nginx/sites-enabled"
 
 sudo cp --recursive "$temporary/frontend/Build/static" "/var/www/$hostname"
-sudo cp "$temporary/frontend/Application/Ship/Utils/Nginx/Development/nginx.conf" "/etc/nginx/nginx.conf"
-sudo cp "$temporary/frontend/Application/Ship/Utils/Nginx/Development/sites-available/localhost.conf" "/etc/nginx/sites-available/$hostname.conf"
+sudo cp "$temporary/frontend/Application/Ship/Utils/Nginx/Default/Development/nginx.conf" "/etc/nginx/nginx.conf"
+sudo cp "$temporary/frontend/Application/Ship/Utils/Nginx/Default/Development/sites-available/localhost.conf" "/etc/nginx/sites-available/$hostname.conf"
 
 sudo ln --symbolic "/etc/nginx/sites-available/$hostname.conf" "/etc/nginx/sites-enabled/$hostname.conf"
 
