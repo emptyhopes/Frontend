@@ -4,7 +4,7 @@ const Register = () => {
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", async () => {
       try {
-        await navigator.serviceWorker.register("ServiceWorker.js");
+        await navigator.serviceWorker.register("/ServiceWorker.js");
       } catch (error) {
         console.log(error);
       }
