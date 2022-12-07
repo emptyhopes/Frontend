@@ -5,12 +5,6 @@ sudo apt-get install git nginx --yes
 hostname="localhost"
 temporary=$(mktemp --directory)
 
-curl --silent --location https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh >"$temporary/install.sh"
-bash "$temporary/install.sh"
-source ~/.nvm/nvm.sh
-nvm install 19.2.0
-nvm use 19.2.0
-
 git clone "https://github.com/emptyhopes/frontend.git" "$temporary/frontend"
 
 cd "$temporary/frontend"; npm install; npm run development

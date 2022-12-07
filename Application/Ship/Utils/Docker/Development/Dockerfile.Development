@@ -2,8 +2,6 @@ FROM node:latest as Development
 
 WORKDIR /usr/src
 
-RUN npm install --global npm@latest
-
 COPY package.json package.json
 RUN npm install
 
