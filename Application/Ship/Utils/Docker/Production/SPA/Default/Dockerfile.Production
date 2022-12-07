@@ -12,7 +12,7 @@ RUN npm run production:spa:default
 
 FROM nginx:latest
 
-ENV hostname="localhost"
+ENV hostname="emptyhopes.ru"
 
 RUN rm --recursive --force /var/www/${hostname}
 RUN rm --force /etc/nginx/sites-available/${hostname}.conf

@@ -1,6 +1,6 @@
 #! /bin/bash
 
-hostname="localhost"
+hostname="emptyhopes.ru"
 temporary=$(mktemp --directory)
 
 git clone "https://github.com/emptyhopes/frontend.git" "$temporary/frontend"
