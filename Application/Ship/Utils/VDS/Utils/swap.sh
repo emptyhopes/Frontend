@@ -1,3 +1,5 @@
+#! /bin/bash
+
 sudo fallocate -l 2048M /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile

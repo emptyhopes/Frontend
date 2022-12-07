@@ -1,3 +1,5 @@
+#! /bin/bash
+
 temporary=$(mktemp --directory)
 
 curl --silent --location https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh >"$temporary/install.sh"
