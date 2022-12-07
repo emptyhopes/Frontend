@@ -1,11 +1,12 @@
 #! /bin/bash
 
-temporary=$(mktemp --directory)
-
-curl --silent --location https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh >"$temporary/install.sh"
-
-bash "$temporary/install.sh"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
 
 source ~/.nvm/nvm.sh
 
 nvm install node
+
+npm install --global npm@latest
+
+node --version
+npm --version

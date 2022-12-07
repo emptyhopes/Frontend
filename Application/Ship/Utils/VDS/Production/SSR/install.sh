@@ -1,9 +1,5 @@
 #! /bin/bash
 
-sudo apt-get install git nginx nodejs npm --yes
-
-sudo npm install --global npm@latest
-
 hostname="localhost"
 temporary=$(mktemp --directory)
 
@@ -12,13 +8,13 @@ git clone "https://github.com/emptyhopes/frontend.git" "$temporary/frontend"
 cd "$temporary/frontend"; npm install; npm run production:ssr:default
 
 sudo rm --recursive --force "/var/www/$hostname"
-sudo rm "/etc/nginx/sites-available/$hostname.conf"
-sudo rm "/etc/nginx/sites-enabled/$hostname.conf"
+sudo rm --force "/etc/nginx/sites-available/$hostname.conf"
+sudo rm --force "/etc/nginx/sites-enabled/$hostname.conf"
 
-sudo mkdir --parents "/var/www/$hostname/static"
-sudo mkdir --parents "/var/www/$hostname/node_modules"
-sudo mkdir --parents "/etc/nginx/sites-available"
-sudo mkdir --parents "/etc/nginx/sites-enabled"
+sudo mkdir --parents --force "/var/www/$hostname/static"
+sudo mkdir --parents --force "/var/www/$hostname/node_modules"
+sudo mkdir --parents --force "/etc/nginx/sites-available"
+sudo mkdir --parents --force "/etc/nginx/sites-enabled"
 
 sudo cp --recursive "$temporary/frontend/Build/static" "/var/www/$hostname"
 sudo cp --recursive "$temporary/frontend/node_modules" "/var/www/$hostname"
