@@ -1,20 +1,20 @@
 /* eslint-disable no-console */
 
 const Register = () => {
-  window.addEventListener("load", async () => {
-    if (navigator) {
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", async () => {
       try {
         await navigator.serviceWorker.register("ServiceWorker.js");
       } catch (error) {
         console.log(error);
       }
-    }
-  });
+    });
+  }
 };
 
 const Unregister = () => {
-  window.addEventListener("load", async () => {
-    if (navigator) {
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", async () => {
       try {
         navigator.serviceWorker.getRegistration().then((registrations) => {
           for (const registration of [registrations]) {
@@ -24,8 +24,8 @@ const Unregister = () => {
       } catch (error) {
         console.log(error);
       }
-    }
-  });
+    });
+  }
 };
 
 export { Register, Unregister };
