@@ -6,8 +6,8 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        node-version: [current, latest, node]
+        os: [ubuntu-latest]
+        node-version: [current, latest]
 
     steps:
       - uses: actions/checkout@v3
