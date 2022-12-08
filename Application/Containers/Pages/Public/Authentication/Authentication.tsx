@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 import { Wrapper } from "@/Application/Containers/UI/Application/Wrapper/Wrapper";
@@ -17,14 +17,14 @@ const Authentication: React.FunctionComponent = (): React.ReactElement => {
   const dispatch = UseApplicationDispatch();
   const [AuthenticateMiddleware, { isLoading }] = AuthenticationMiddleware.useAuthenticateMutation();
 
-  const [email, SetEmail] = useState("");
-  const [password, SetPassword] = useState("");
+  const email = useRef(null);
+  const password = useRef(null);
 
   const [error, SetError] = useState("");
   const [isActivated, SetActivated] = useState(false);
 
   const AuthenticateFunction = () => {
-    const response = AuthenticateMiddleware({ email: email, password: password }).unwrap();
+    const response = AuthenticateMiddleware({ email: email.current.value, password: password.current.value }).unwrap();
 
     response.then((data) => {
       dispatch(
@@ -60,18 +60,9 @@ const Authentication: React.FunctionComponent = (): React.ReactElement => {
             Вернуться на главную страницу
           </Link>
 
-          <Input
-            style={{ margin: "0 0 20px 0" }}
-            onChange={(event) => SetEmail(event.target.value)}
-            type="text"
-            placeholder="Введите электронный адрес"
-          />
-          <Input
-            style={{ margin: "0 0 20px 0" }}
-            onChange={(event) => SetPassword(event.target.value)}
-            type="password"
-            placeholder="Введите пароль"
-          />
+          <Input style={{ margin: "0 0 20px 0" }} ref={email} type="text" placeholder="Введите электронный адрес" />
+          <Input style={{ margin: "0 0 20px 0" }} ref={password} type="password" placeholder="Введите пароль" />
+
           <Button disabled={isActivated === true ? isActivated : isLoading} onClick={() => AuthenticateFunction()}>
             Войти
           </Button>

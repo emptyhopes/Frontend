@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { UseApplicationSelector } from "@/Application/Ship/Store/Hooks/UseApplicationSelector";
@@ -18,6 +18,8 @@ import { Switch } from "@/Application/Containers/UI/Details/Switch/Switch";
 import { Modal } from "@/Application/Containers/UI/Details/Modal/Modal";
 import { Loading } from "@/Application/Containers/UI/Details/Loading/Loading";
 
+import { LanguageContext } from "@/Application/Containers/Context/LanguageContext/LanguageContext";
+
 const StyledContent = styled.div`
   display: flex;
   align-items: center;
@@ -34,6 +36,8 @@ const StyledTitle = styled.h1`
 const Home: React.FunctionComponent = (): React.ReactElement => {
   const navigate = useNavigate();
 
+  const { language } = useContext(LanguageContext);
+
   const [isActivated, SetActivated] = useState(false);
 
   const { isAuthentication } = UseApplicationSelector((state) => state.AuthenticationReducer);
@@ -46,7 +50,7 @@ const Home: React.FunctionComponent = (): React.ReactElement => {
           <Breadcrumbs />
           <StyledTitle>Home</StyledTitle>
           <StyledContent>
-            <Button>Кнопка</Button>
+            <Button>{language.button.text}</Button>
             <Input type="text" placeholder="Введите имя" />
             <Switch />
           </StyledContent>

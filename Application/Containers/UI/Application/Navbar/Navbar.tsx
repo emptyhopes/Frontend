@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
 
 import { Theme } from "@/Application/Containers/UI/Details/Theme/Theme";
+import { Language } from "@/Application/Containers/UI/Details/Language/Language";
 
 const StyledNavbar = styled.div`
   display: flex;
@@ -70,6 +71,7 @@ const Navbar: React.FunctionComponent = (): React.ReactElement => {
           </StyledUl>
         </nav>
         <StyledTheme />
+        <Language />
       </StyledNavbar>
     </>
   );
