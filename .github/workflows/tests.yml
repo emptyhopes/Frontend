@@ -7,11 +7,11 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node-version: [current, latest]
+        node-version: [latest]
 
     steps:
-      - uses: actions/checkout@v3
       - name: Starting Node.js ${{ matrix.node-version }}
+      - uses: actions/checkout@v3
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
