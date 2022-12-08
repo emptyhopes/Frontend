@@ -2,11 +2,12 @@ on: [push]
 
 jobs:
   push:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        node-version: [19.x]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [current, latest, node]
 
     steps:
       - uses: actions/checkout@v3
@@ -14,6 +15,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: NPM update
+        run: npm install --global npm@latest
 
       - name: NPM install
         run: npm install

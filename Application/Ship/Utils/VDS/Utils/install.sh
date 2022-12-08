@@ -30,6 +30,11 @@ nvm install node
 
 npm install --global npm@latest
 
+# Check version
+
+node --version
+npm --version
+
 # Install letsencrypt SSL certificate
 
 sudo certbot
