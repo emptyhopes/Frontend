@@ -10,8 +10,8 @@ source ~/.nvm/nvm.sh
 cd "$temporary/frontend"; npm install; npm run production:ssr:default
 
 sudo rm --recursive --force "/var/www/$hostname"
-sudo rm --force "/etc/nginx/sites-available/default.conf"
-sudo rm --force "/etc/nginx/sites-available/default.conf"
+sudo rm --force "/etc/nginx/sites-available/default"
+sudo rm --force "/etc/nginx/sites-available/default"
 sudo rm --force "/etc/nginx/sites-available/$hostname.conf"
 sudo rm --force "/etc/nginx/sites-enabled/$hostname.conf"
 
