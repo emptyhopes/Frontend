@@ -10,6 +10,7 @@ source ~/.nvm/nvm.sh
 cd "$temporary/frontend"; npm install; npm run production:spa:default
 
 sudo rm --recursive --force "/var/www/$hostname"
+sudo rm --recursive --force "/var/www/html"
 sudo rm --force "/etc/nginx/sites-available/default"
 sudo rm --force "/etc/nginx/sites-available/default"
 sudo rm --force "/etc/nginx/sites-available/$hostname.conf"
