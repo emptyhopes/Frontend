@@ -5,9 +5,13 @@ temporary=$(mktemp --directory)
 
 git clone "https://github.com/emptyhopes/frontend.git" "$temporary/frontend"
 
+source ~/.nvm/nvm.sh
+
 cd "$temporary/frontend"; npm install; npm run production:spa:default
 
 sudo rm --recursive --force "/var/www/$hostname"
+sudo rm --force "/etc/nginx/sites-available/default.conf"
+sudo rm --force "/etc/nginx/sites-available/default.conf"
 sudo rm --force "/etc/nginx/sites-available/$hostname.conf"
 sudo rm --force "/etc/nginx/sites-enabled/$hostname.conf"
 

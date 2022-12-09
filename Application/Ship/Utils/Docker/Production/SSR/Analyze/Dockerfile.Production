@@ -13,6 +13,8 @@ RUN npm run production:ssr:analyze
 FROM nginx:latest
 
 RUN rm --recursive --force /var/www/localhost
+RUN rm --force /etc/nginx/sites-available/default.conf
+RUN rm --force /etc/nginx/sites-enabled/default.conf
 RUN rm --force /etc/nginx/sites-available/localhost.conf
 RUN rm --force /etc/nginx/sites-enabled/localhost.conf
 
