@@ -1,9 +1,9 @@
 import { RenderTests } from "@/Application/Ship/Tests/Utils/RenderTests";
 
-import { Header } from "@/Application/Containers/UI/Application/Header/Header";
+import { Language } from "@/Application/Containers/UI/Details/Language/Language";
 
-test("Header", () => {
-  const { container } = RenderTests(<Header />);
+test("Language", () => {
+  const { container } = RenderTests(<Language />);
 
   expect(container).toBeInTheDocument();
   expect(container).toMatchSnapshot();

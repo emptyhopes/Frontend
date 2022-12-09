@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input 1`] = `
+.c0 {
+  width: 500px;
+  padding: 14px;
+  border: 1px solid #c0c0c0;
+  border-radius: 12px;
+  color: #000000;
+  outline: none;
+}
+
+.c0:focus {
+  border: 1px solid #00bfff;
+}
+
+<div>
+  <input
+    class="c0"
+    placeholder=""
+    type=""
+  />
+</div>
+`;

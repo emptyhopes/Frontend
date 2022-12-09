@@ -1,7 +1,9 @@
-module.exports = {
+const config = {
   testEnvironment: "jsdom",
 
   moduleFileExtensions: ["json", "js", "jsx", "ts", "tsx", "css", "scss", "sass"],
+
+  setupFilesAfterEnv: ["<rootDir>/Application/Ship/Tests/Setup.ts"],
 
   moduleNameMapper: {
     "\\.(css|sass|scss)$": "identity-obj-proxy",
@@ -10,8 +12,9 @@ module.exports = {
   },
 
   transform: {
-    "\\.(svg|png|jpg|jpeg)$": "<rootDir>/Application/Ship/Tests/FileTransformer.ts",
+    "\\.(svg|png|jpg|jpeg)$": "<rootDir>/Application/Ship/Tests/FileTransformer.js",
+    "^.+\\.tsx?$": ["ts-jest"],
   },
-
-  setupFilesAfterEnv: ["<rootDir>/Application/Ship/Tests/Setup.ts"],
 };
+
+export default { ...config };

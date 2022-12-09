@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import styled from "styled-components";
 
 import { PropsInterface } from "@/Application/Containers/UI/Details/Input/Types/PropsInterface";
@@ -15,8 +17,14 @@ const StyledInput = styled.input`
   }
 `;
 
-const Input: React.FunctionComponent<PropsInterface> = (props: PropsInterface): React.ReactElement => {
-  return <StyledInput {...props} />;
+const DefaultInput = (props: PropsInterface, ref) => {
+  return (
+    <>
+      <StyledInput ref={ref} {...props} />
+    </>
+  );
 };
+
+const Input = React.forwardRef(DefaultInput);
 
 export { Input };

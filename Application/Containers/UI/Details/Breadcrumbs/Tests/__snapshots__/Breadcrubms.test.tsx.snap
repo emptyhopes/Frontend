@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumbs 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px 0;
+}
+
+.c0 li + li {
+  margin: 0 0 0 10px;
+}
+
+<div>
+  <div
+    class="c0"
+  />
+</div>
+`;

@@ -15,7 +15,7 @@ const StyledContainer = styled.div`
 `;
 
 const Container: React.FunctionComponent<PropsInterface> = (props: PropsInterface): React.ReactElement => {
-  return <StyledContainer data-testid={"Container"} {...props} />;
+  return <StyledContainer {...props} />;
 };
 
 export { Container };

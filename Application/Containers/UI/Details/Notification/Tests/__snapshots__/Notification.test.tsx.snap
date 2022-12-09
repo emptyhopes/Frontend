@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification 1`] = `
+.c0 {
+  position: absolute;
+  top: 100px;
+  right: 100px;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.c0.active {
+  -webkit-animation: cKYaMk 4s linear 1;
+  animation: cKYaMk 4s linear 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  opacity: 1;
+}
+
+.c1 {
+  position: relative;
+  width: 400px;
+  height: 50px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.c1.active {
+  background-color: rgba(255,0,0,0.1);
+  opacity: 1;
+}
+
+.c2 {
+  position: absolute;
+  top: 0;
+  left: 1px;
+  width: 396px;
+  height: 6px;
+  border-radius: 10px 10px 0 0;
+}
+
+.c2.active {
+  border-radius: 10px 0 0;
+  -webkit-animation: jMBXXb 4s linear 1;
+  animation: jMBXXb 4s linear 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  background-color: #ff0000;
+}
+
+.c3 {
+  position: absolute;
+  top: 12px;
+  right: 8px;
+  border: none;
+  background: transparent;
+}
+
+.c3 svg {
+  width: 20px;
+  height: 20px;
+}
+
+.c4 {
+  position: absolute;
+  top: 2px;
+  left: 15px;
+  color: #ff0000;
+  font-size: 14px;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <div
+        class="c2"
+      />
+      <button
+        class="c3"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z"
+            fill="none"
+            stroke-miterlimit="10"
+            stroke-width="32"
+          />
+          <path
+            d="M320 320L192 192m0 128l128-128"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="32"
+          />
+        </svg>
+      </button>
+      <p
+        class="c4"
+      />
+    </div>
+  </div>
+</div>
+`;

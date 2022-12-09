@@ -1,9 +1,9 @@
 import { RenderTests } from "@/Application/Ship/Tests/Utils/RenderTests";
 
-import { Header } from "@/Application/Containers/UI/Application/Header/Header";
+import { Button } from "@/Application/Containers/UI/Details/Button/Button";
 
-test("Header", () => {
-  const { container } = RenderTests(<Header />);
+test("Button", () => {
+  const { container } = RenderTests(<Button />);
 
   expect(container).toBeInTheDocument();
   expect(container).toMatchSnapshot();

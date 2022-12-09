@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading 1`] = `
+.c0 {
+  width: 25px;
+  height: 25px;
+  border: 2px solid transparent;
+  border-color: #000000 transparent;
+  border-radius: 50%;
+  -webkit-animation: epmXAj 1.5s linear infinite;
+  animation: epmXAj 1.5s linear infinite;
+}
+
+<div>
+  <div
+    class="c0"
+  />
+</div>
+`;

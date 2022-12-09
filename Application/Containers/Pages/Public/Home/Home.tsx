@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { UseApplicationSelector } from "@/Application/Ship/Store/Hooks/UseApplicationSelector";
@@ -36,6 +36,8 @@ const StyledTitle = styled.h1`
 const Home: React.FunctionComponent = (): React.ReactElement => {
   const navigate = useNavigate();
 
+  const name = useRef();
+
   const { language } = useContext(LanguageContext);
 
   const [isActivated, SetActivated] = useState(false);
@@ -51,7 +53,7 @@ const Home: React.FunctionComponent = (): React.ReactElement => {
           <StyledTitle>Home</StyledTitle>
           <StyledContent>
             <Button>{language.button.text}</Button>
-            <Input type="text" placeholder="Введите имя" />
+            <Input ref={name} type="text" placeholder="Введите имя" />
             <Switch />
           </StyledContent>
           <StyledContent>

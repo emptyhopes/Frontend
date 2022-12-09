@@ -29,11 +29,9 @@ exports[`Footer 1`] = `
 <div>
   <footer
     class="c0"
-    data-testid="Footer"
   >
     <div
       class="c1"
-      data-testid="Container"
     >
       <h1>
         Footer

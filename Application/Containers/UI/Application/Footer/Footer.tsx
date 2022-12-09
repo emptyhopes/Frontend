@@ -10,7 +10,7 @@ const StyledFooter = styled.footer`
 const Footer: React.FunctionComponent = (): React.ReactElement => {
   return (
     <>
-      <StyledFooter data-testid={"Footer"}>
+      <StyledFooter>
         <Container flex VerticalCenter HorizontalCenter>
           <h1>Footer</h1>
         </Container>
