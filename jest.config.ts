@@ -1,4 +1,6 @@
 module.exports = {
+  testEnvironment: "jsdom",
+
   moduleFileExtensions: ["json", "js", "jsx", "ts", "tsx", "css", "scss", "sass"],
 
   moduleNameMapper: {
@@ -7,5 +9,9 @@ module.exports = {
     "^@/(.*)$": "<rootDir>/$1",
   },
 
-  testEnvironment: "jsdom",
+  transform: {
+    "\\.(svg|png|jpg|jpeg)$": "<rootDir>/Application/Ship/Tests/FileTransformer.ts",
+  },
+
+  setupFilesAfterEnv: ["<rootDir>/Application/Ship/Tests/Setup.ts"],
 };

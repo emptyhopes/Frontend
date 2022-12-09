@@ -2,7 +2,8 @@
   "root": true,
 
   "env": {
-    "node": true
+    "node": true,
+    "jest": true
   },
 
   "plugins": ["react", "@typescript-eslint", "import"],

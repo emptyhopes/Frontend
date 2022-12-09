@@ -35,7 +35,7 @@ jobs:
         run: npm run lint
 
       # - name: Check tests
-      # run: npm run tests
+      #   run: npm run tests
 
       - name: Check development build in the docker container
         run: npm run development:docker

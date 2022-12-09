@@ -29,7 +29,7 @@ const StyledLogo = styled.div`
 const Header: React.FunctionComponent = (): React.ReactElement => {
   return (
     <>
-      <StyledHeader>
+      <StyledHeader data-testid={"Header"}>
         <Container>
           <StyledContent>
             <StyledLogo>
