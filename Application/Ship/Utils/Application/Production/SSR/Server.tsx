@@ -12,7 +12,7 @@ import { store } from "@/Application/Ship/Store/index";
 import { Application } from "@/Application/Containers/Application/Application";
 
 const hostname = "localhost";
-const port = 3000;
+const port = 3001;
 
 const server = express();
 
