@@ -1,6 +1,6 @@
 #! /bin/bash
 
-hostname="gartmann-art.ru"
+hostname=""
 
 curl --location -I http://$hostname
 curl --location -I http://en.$hostname

@@ -1,9 +1,15 @@
 #! /bin/bash
 
-hostname="gartmann-art.ru"
 temporary=$(mktemp --directory)
 
 git clone "https://github.com/emptyhopes/frontend.git" "$temporary/frontend"
+
+if [[ -f "$temporary/frontend/Config/Variables.sh" ]]; then
+   source "$temporary/frontend/Config/Variables.sh"
+else
+   echo "File variables not found."
+   exit 1
+fi
 
 source ~/.nvm/nvm.sh
 
@@ -23,6 +29,7 @@ sudo mkdir --parents "/etc/nginx/sites-enabled"
 
 sudo cp --recursive "$temporary/frontend/Build/static" "/var/www/$hostname"
 sudo cp --recursive "$temporary/frontend/node_modules" "/var/www/$hostname"
+sudo cp --recursive "$temporary/frontend/Config/Variables.sh" "/var/www/$hostname"
 sudo cp --recursive "$temporary/frontend/Application/Ship/Utils/VDS/Production/SSR/start.sh" "/var/www/$hostname"
 sudo cp "$temporary/frontend/Application/Ship/Utils/Nginx/Default/Production/SSR/nginx.conf" "/etc/nginx/nginx.conf"
 sudo cp "$temporary/frontend/Application/Ship/Utils/Nginx/Default/Production/SSR/sites-available/$hostname.conf" "/etc/nginx/sites-available/$hostname.conf"

@@ -1,9 +1,15 @@
 #! /bin/bash
 
-hostname="gartmann-art.ru"
 temporary=$(mktemp --directory)
 
 git clone "https://github.com/emptyhopes/frontend.git" "$temporary/frontend"
+
+if [[ -f "$temporary/frontend/Config/Variables.sh" ]]; then
+   source "$temporary/frontend/Config/Variables.sh"
+else
+   echo "File variables not found."
+   exit 1
+fi
 
 source ~/.nvm/nvm.sh
 

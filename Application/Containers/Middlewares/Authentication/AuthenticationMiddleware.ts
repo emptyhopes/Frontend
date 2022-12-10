@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 
-import { Server } from "@/Config/Server";
+import { API } from "@/Config/API";
 
 import {
   RegistrationInterface,
@@ -10,7 +10,7 @@ import {
 const AuthenticationMiddleware = createApi({
   reducerPath: "AuthenticationMiddleware",
 
-  baseQuery: fetchBaseQuery({ baseUrl: Server.url, mode: "cors" }),
+  baseQuery: fetchBaseQuery({ baseUrl: API.url, mode: "cors" }),
 
   endpoints: (build) => ({
     Registration: build.mutation({

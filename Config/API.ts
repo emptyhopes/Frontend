@@ -1,5 +1,5 @@
-const Server = {
+const API = {
   url: "http://localhost:3000/api",
 };
 
-export { Server };
+export { API };

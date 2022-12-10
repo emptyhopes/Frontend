@@ -1,6 +1,11 @@
 #! /bin/bash
 
-hostname="gartmann-art.ru"
+if [[ -f "Variables.sh" ]]; then
+   source "Variables.sh"
+else
+   echo "File variables not found."
+   exit 1
+fi
 
 source ~/.nvm/nvm.sh
 

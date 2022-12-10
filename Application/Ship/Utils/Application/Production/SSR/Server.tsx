@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+/* eslint-disable quotes */
+
 import { resolve } from "path";
 import { readFileSync } from "fs";
 
@@ -11,8 +14,7 @@ import { ServerStyleSheet } from "styled-components";
 import { store } from "@/Application/Ship/Store/index";
 import { Application } from "@/Application/Containers/Application/Application";
 
-const hostname = "localhost";
-const port = 3001;
+import { SSR } from "@/Config/SSR";
 
 const server = express();
 
@@ -39,13 +41,11 @@ server.use("*", (request, response) => {
 
   HTML = HTML.replace("<style></style>", styles);
 
-  // eslint-disable-next-line quotes
   HTML = HTML.replace('<div id="root"></div>', '<div id="root">' + Structures + "</div>");
 
   response.send(HTML);
 });
 
-server.listen(port, hostname, () => {
-  // eslint-disable-next-line no-console
-  console.log("http://localhost" + ":" + port);
+server.listen(SSR.server.port, SSR.server.hostname, () => {
+  console.log("http://localhost" + ":" + SSR.server.port);
 });
