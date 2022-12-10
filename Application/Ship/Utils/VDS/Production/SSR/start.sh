@@ -1,7 +1,7 @@
 #! /bin/bash
 
-if [[ -f "$(pwd)/Variables.sh" ]]; then
-   source "$(pwd)/Variables.sh"
+if [[ -f "$(dirname $(readlink -f "$0"))/Variables.sh" ]]; then
+   source "$(dirname $(readlink -f "$0"))/Variables.sh"
 else
    echo "File variables not found."
    exit 1
