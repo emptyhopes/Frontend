@@ -7,7 +7,7 @@ sudo apt-get update --yes && sudo apt-get upgrade --yes
 sudo apt-get autoremove --yes
 
 # Install packages
-sudo apt-get install git nginx certbot python3-certbot-nginx --yes
+sudo apt-get install git nginx certbot python3-certbot-nginx nmap --yes
 
 # SWAP
 
@@ -35,6 +35,12 @@ npm install --global npm@latest
 node --version
 npm --version
 
-# Install letsencrypt SSL certificate
+# Firewall
 
-sudo certbot
+ufw enable
+
+ufw allow 22
+ufw allow 80
+ufw allow 443
+
+ufw status

@@ -6,7 +6,7 @@ const StyledButton = styled.button`
   padding: 10px 20px;
   border: 1px solid #e0e3e7;
   border-radius: 10px;
-  background: ${(props) => props.theme.button.background.color};
+  background-color: var(--buttton-background-color);
   color: #3e5060;
 
   &:hover {

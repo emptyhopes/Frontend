@@ -8,7 +8,7 @@ import { Input } from "@/Application/Containers/UI/Details/Input/Input";
 import { Button } from "@/Application/Containers/UI/Details/Button/Button";
 import { Notification } from "@/Application/Containers/UI/Details/Notification/Notification";
 
-import { AuthenticationMiddleware } from "@/Application/Containers/Middlewares/Authentication/AuthenticationMiddleware";
+import { AuthenticationMiddleware } from "@/Application/Containers/Middlewares/AuthenticationMiddlewares/AuthenticationMiddleware";
 
 const Registration: React.FunctionComponent = (): React.ReactElement => {
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ const Registration: React.FunctionComponent = (): React.ReactElement => {
   return (
     <>
       <Wrapper>
-        <Container flex column VerticalCenter HorizontalCenter>
+        <Container>
           {isActivated && (
             <Notification isActivated={isActivated} SetActivated={SetActivated}>
               {error}

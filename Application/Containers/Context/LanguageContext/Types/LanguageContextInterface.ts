@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import { LanguageInterface } from "@/Application/Ship/Languages/Types/LanguageInterface";
 
 interface LanguageContextInterface {

@@ -17,3 +17,5 @@ curl --location -I https://ru.$hostname
 curl --location -I https://www.$hostname
 curl --location -I https://www.en.$hostname
 curl --location -I https://www.$hostname
+
+nmap $hostname

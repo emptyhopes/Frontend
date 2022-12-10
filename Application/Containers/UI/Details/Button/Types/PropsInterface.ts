@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 interface PropsInterface {
   children?: React.ReactNode;
   disabled?: boolean;

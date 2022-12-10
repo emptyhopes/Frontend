@@ -2,12 +2,19 @@
 
 exports[`Footer 1`] = `
 .c1 {
+  width: 100%;
+  max-width: 1240px;
+  height: 100%;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  max-width: 1240px;
   height: 100%;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -17,13 +24,14 @@ exports[`Footer 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  padding: 0 10px;
-  margin: 0 auto;
 }
 
 .c0 {
   height: 120px;
-  background-color: #ffffff;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  background-color: var(--footer-background-color);
 }
 
 <div>
@@ -33,9 +41,13 @@ exports[`Footer 1`] = `
     <div
       class="c1"
     >
-      <h1>
-        Footer
-      </h1>
+      <div
+        class="c2"
+      >
+        <h1>
+          Footer
+        </h1>
+      </div>
     </div>
   </footer>
 </div>

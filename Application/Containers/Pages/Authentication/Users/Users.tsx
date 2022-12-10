@@ -1,4 +1,4 @@
-import { UsersMiddleware } from "@/Application/Containers/Middlewares/Users/UsersMiddleware";
+import { UsersMiddleware } from "@/Application/Containers/Middlewares/UsersMiddlewares/UsersMiddleware";
 
 import { Wrapper } from "@/Application/Containers/UI/Application/Wrapper/Wrapper";
 import { Container } from "@/Application/Containers/UI/Application/Container/Container";

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { GetLanguageStorage, SetLanguageStorage } from "@/Application/Containers/Hooks/Language/UseLanguage";
+import { GetLanguageStorage, SetLanguageStorage } from "@/Application/Containers/Hooks/LanguageHooks/LanguageHooks";
 
 import { LanguageContext } from "@/Application/Containers/Context/LanguageContext/LanguageContext";
 

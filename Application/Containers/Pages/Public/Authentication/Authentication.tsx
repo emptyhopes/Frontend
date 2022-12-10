@@ -10,7 +10,7 @@ import { Notification } from "@/Application/Containers/UI/Details/Notification/N
 
 import { UseApplicationDispatch } from "@/Application/Ship/Store/Hooks/UseApplicationDispatch";
 import { AuthenticationActions } from "@/Application/Containers/Store/Authentication/Slices/Slice";
-import { AuthenticationMiddleware } from "@/Application/Containers/Middlewares/Authentication/AuthenticationMiddleware";
+import { AuthenticationMiddleware } from "@/Application/Containers/Middlewares/AuthenticationMiddlewares/AuthenticationMiddleware";
 
 const Authentication: React.FunctionComponent = (): React.ReactElement => {
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ const Authentication: React.FunctionComponent = (): React.ReactElement => {
   return (
     <>
       <Wrapper>
-        <Container flex column VerticalCenter HorizontalCenter>
+        <Container>
           {isActivated && (
             <Notification isActivated={isActivated} SetActivated={SetActivated}>
               {error}
