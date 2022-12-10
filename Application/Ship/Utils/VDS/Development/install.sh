@@ -12,7 +12,7 @@ cd "$temporary/frontend"; npm install; npm run development
 sudo rm --recursive --force "/var/www/$hostname"
 sudo rm --recursive --force "/var/www/html"
 sudo rm --force "/etc/nginx/sites-available/default"
-sudo rm --force "/etc/nginx/sites-available/default"
+sudo rm --force "/etc/nginx/sites-enabled/default"
 sudo rm --force "/etc/nginx/sites-available/$hostname.conf"
 sudo rm --force "/etc/nginx/sites-enabled/$hostname.conf"
 
