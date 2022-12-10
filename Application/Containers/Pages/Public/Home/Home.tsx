@@ -50,7 +50,7 @@ const Home: React.FunctionComponent = (): React.ReactElement => {
       <Wrapper>
         <Container>
           <Breadcrumbs />
-          <StyledTitle>Home</StyledTitle>
+          <StyledTitle>Home gartmann-art.ru</StyledTitle>
           <StyledContent>
             <Button>{language.button.text}</Button>
             <Input ref={name} type="text" placeholder="Введите имя" />
