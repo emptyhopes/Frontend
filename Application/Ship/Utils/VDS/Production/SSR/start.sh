@@ -1,6 +1,6 @@
 #! /bin/bash
 
-hostname="gartmann-art.ru"
+hostname="emptyhopes.ru"
 
 source ~/.nvm/nvm.sh
 
