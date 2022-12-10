@@ -1,7 +1,7 @@
 #! /bin/bash
 
-if [[ -f "Variables.sh" ]]; then
-   source "Variables.sh"
+if [[ -f "$(pwd)/Variables.sh" ]]; then
+   source "$(pwd)/Variables.sh"
 else
    echo "File variables not found."
    exit 1
