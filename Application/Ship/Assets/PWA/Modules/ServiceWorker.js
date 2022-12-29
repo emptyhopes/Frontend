@@ -1,6 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-console */
-
 const CacheName = "application_v1.0.0";
 
 self.addEventListener("fetch", async (event) => {
@@ -12,12 +9,10 @@ self.addEventListener("activate", async () => {
 });
 
 const UpdateCache = async (event) => {
-  // Fetching resource
   const cached = await caches.match(event.request);
 
   if (cached) return cached;
 
-  // Caching new resource
   const response = await fetch(event.request);
   const cache = await caches.open(CacheName);
 
@@ -29,6 +24,5 @@ const UpdateCache = async (event) => {
 const DeleteCache = async () => {
   const CacheNames = await caches.keys();
 
-  // Delete old version resource
   await Promise.all(CacheNames.filter((name) => name !== CacheName).map((name) => caches.delete(name)));
 };

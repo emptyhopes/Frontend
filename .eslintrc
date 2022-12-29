@@ -3,6 +3,7 @@
 
   "env": {
     "node": true,
+    "serviceworker": true,
     "jest": true
   },
 

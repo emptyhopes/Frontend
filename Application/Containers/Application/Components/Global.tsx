@@ -17,7 +17,6 @@ const Global = createGlobalStyle`
   body {
     color: #000000;
     font-family: Solway, sans-serif;
-    transition: all 0.2s linear;
   }
 
   a {

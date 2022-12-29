@@ -6,7 +6,7 @@ const Register = () => {
       try {
         await navigator.serviceWorker.register("ServiceWorker.js");
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     });
   }
@@ -18,11 +18,11 @@ const Unregister = () => {
       try {
         navigator.serviceWorker.getRegistration().then((registrations) => {
           for (const registration of [registrations]) {
-            registration.unregister();
+            if (registration) registration.unregister();
           }
         });
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     });
   }

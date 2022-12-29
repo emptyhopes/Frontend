@@ -4,6 +4,8 @@
     "module": "CommonJS",
     "moduleResolution": "Node",
     "jsx": "react-jsx",
+    "strict": true,
+    "alwaysStrict": true,
 
     "baseUrl": ".",
 

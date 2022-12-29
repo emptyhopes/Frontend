@@ -17,14 +17,34 @@ const StyledInput = styled.input`
   }
 `;
 
-const DefaultInput = (props: PropsInterface, ref) => {
+// const DefaultInput: React.FunctionComponent<PropsInterface> = (
+//   props: PropsInterface,
+//   ref: React.RefObject<HTMLInputElement>,
+// ): React.ReactElement => {
+//   return (
+//     <>
+//       <StyledInput {...props} ref={ref} />
+//     </>
+//   );
+// };
+
+// eslint-disable-next-line react/display-name
+// const Input: React.ForwardRefExoticComponent<React.RefAttributes<PropsInterface>> = React.forwardRef<PropsInterface>(
+//   (props): React.ReactElement => {
+//     return (
+//       <>
+//         <StyledInput {...props} />
+//       </>
+//     );
+//   },
+// );
+
+const Input: React.FunctionComponent<PropsInterface> = (props: PropsInterface) => {
   return (
     <>
-      <StyledInput ref={ref} {...props} />
+      <StyledInput {...props} />
     </>
   );
 };
-
-const Input = React.forwardRef(DefaultInput);
 
 export { Input };

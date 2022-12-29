@@ -1,6 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable quotes */
-
 import { resolve } from "path";
 import { readFileSync } from "fs";
 
@@ -41,11 +38,9 @@ server.use("*", (request, response) => {
 
   HTML = HTML.replace("<style></style>", styles);
 
-  HTML = HTML.replace('<div id="root"></div>', '<div id="root">' + Structures + "</div>");
+  HTML = HTML.replace("<div id='root'></div>", "<div id='root'>" + Structures + "</div>");
 
   response.send(HTML);
 });
 
-server.listen(SSR.server.port, SSR.server.hostname, () => {
-  console.log("http://localhost" + ":" + SSR.server.port);
-});
+server.listen(SSR.server.port, SSR.server.hostname);
