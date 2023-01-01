@@ -8,10 +8,12 @@ import {
 import { Button } from "@/Application/Containers/UI/Details/Button/Button";
 
 const CookieConsent: React.FunctionComponent = (): React.ReactElement => {
-  const [Consent, SetConsent] = useState("false");
+  const [Consent, SetConsent] = useState<string>("false");
+
+  const CookieConsent = GetCookieConsentStorage();
 
   useEffect(() => {
-    SetConsent(GetCookieConsentStorage());
+    if (CookieConsent) SetConsent(CookieConsent);
   }, [Consent]);
 
   const ConsentFunction = () => {

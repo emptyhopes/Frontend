@@ -7,8 +7,10 @@ import { Button } from "@/Application/Containers/UI/Details/Button/Button";
 const Theme: React.FunctionComponent = (): React.ReactElement => {
   const [Theme, SetTheme] = useState({ value: "light" });
 
+  const CurrentTheme = GetCurrentTheme();
+
   useEffect(() => {
-    document.body.setAttribute("theme", GetCurrentTheme());
+    if (CurrentTheme) document.body.setAttribute("theme", CurrentTheme);
   }, [Theme]);
 
   const ChangeTheme = () => {

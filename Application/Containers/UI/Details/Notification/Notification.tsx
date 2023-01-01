@@ -106,11 +106,13 @@ const Notification: React.FunctionComponent<PropsInterface> = (props: PropsInter
     }, 4000).unref;
   });
 
+  const status = props.isActivated ? "active" : "";
+
   return (
     <>
-      <StyledNotification className={props.isActivated && "active"}>
-        <StyledContent className={props.isActivated && "active"}>
-          <StyledTimer className={props.isActivated && "active"} />
+      <StyledNotification className={status}>
+        <StyledContent className={status}>
+          <StyledTimer className={status} />
           <StyledButton onClick={() => props.SetActivated(false)}>
             <IoCloseCircleOutline />
           </StyledButton>

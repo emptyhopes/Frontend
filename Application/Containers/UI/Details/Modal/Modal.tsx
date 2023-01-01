@@ -49,9 +49,11 @@ const StyledButton = styled.button`
 `;
 
 const Modal: React.FunctionComponent<PropsInterface> = (props: PropsInterface): React.ReactElement => {
+  const status = props.isActivated ? "active" : "";
+
   return (
     <>
-      <StyledModal className={props.isActivated && "active"} onClick={() => props.SetActivated(false)}>
+      <StyledModal className={status} onClick={() => props.SetActivated(false)}>
         <StyledContent onClick={(event) => event.stopPropagation()}>
           <StyledButton aria-label="modal-close" onClick={() => props.SetActivated(false)}>
             <IoCloseCircleOutline />

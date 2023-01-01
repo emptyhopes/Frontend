@@ -13,13 +13,11 @@ const GetLanguageStorage = () => {
 const GetLanguageObject = (): LanguageInterface => {
   const language = GetLanguageStorage();
 
-  if (language === null) {
-    SetLanguageStorage({ value: "ru-RU" });
-    return Russia;
-  }
-
   if (language === "ru-RU") return Russia;
   if (language === "en-EN") return English;
+
+  SetLanguageStorage({ value: "ru-RU" });
+  return Russia;
 };
 
 const GetLanguages = () => {
